@@ -87,11 +87,6 @@ async function main() {
     console.log(data, data.completeness);
     complete = data.completeness;
   }
-  if (complete == "full") {
-    alert("Watch this Video Successfully!");
-  } else {
-    alert("Some Error Occurred, Please Retry!");
-  }
 }
 main();
 """
@@ -165,7 +160,7 @@ def main():
                             EC.presence_of_element_located((By.TAG_NAME, "video")),
                         )
                     )
-                    time.sleep(3)
+                    time.sleep(1)
                     print("✅ 视频播放页加载完成")
                 except:
                     print("⚠️ 视频页面加载超时，但仍尝试执行脚本")
