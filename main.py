@@ -199,7 +199,7 @@ def main():
                 try:
                     driver.back()
                     time.sleep(2)
-                except:
+                except:  # noqa: E722
                     pass
                 continue
 

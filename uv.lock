@@ -12,6 +12,23 @@ wheels = [
 ]
 
 [[package]]
+name = "auto-course-zju"
+version = "0.1.0"
+source = { virtual = "." }
+dependencies = [
+    { name = "requests" },
+    { name = "selenium" },
+    { name = "webdriver-manager" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "requests", specifier = ">=2.32.5" },
+    { name = "selenium", specifier = ">=4.35.0" },
+    { name = "webdriver-manager", specifier = ">=4.0.2" },
+]
+
+[[package]]
 name = "certifi"
 version = "2025.8.3"
 source = { registry = "https://pypi.org/simple" }
@@ -288,21 +305,4 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/c9/4a/44d3c295350d776427904d73c189e10aeae66d7f555bb2feee16d1e4ba5a/wsproto-1.2.0.tar.gz", hash = "sha256:ad565f26ecb92588a3e43bc3d96164de84cd9902482b130d0ddbaa9664a85065", size = 53425, upload-time = "2022-08-23T19:58:21.447Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/78/58/e860788190eba3bcce367f74d29c4675466ce8dddfba85f7827588416f01/wsproto-1.2.0-py3-none-any.whl", hash = "sha256:b9acddd652b585d75b20477888c56642fdade28bdfd3579aa24a4d2c037dd736", size = 24226, upload-time = "2022-08-23T19:58:19.96Z" },
-]
-
-[[package]]
-name = "zjucourse"
-version = "0.1.0"
-source = { virtual = "." }
-dependencies = [
-    { name = "requests" },
-    { name = "selenium" },
-    { name = "webdriver-manager" },
-]
-
-[package.metadata]
-requires-dist = [
-    { name = "requests", specifier = ">=2.32.5" },
-    { name = "selenium", specifier = ">=4.35.0" },
-    { name = "webdriver-manager", specifier = ">=4.0.2" },
 ]

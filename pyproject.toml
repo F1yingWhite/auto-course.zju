@@ -1,7 +1,7 @@
 [project]
-name = "zjucourse"
+name = "auto-course.zju"
 version = "0.1.0"
-description = "Add your description here"
+description = "学在浙自动脚刷课脚本"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
