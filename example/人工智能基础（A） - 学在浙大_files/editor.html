@@ -1,0 +1,1130 @@
+<!DOCTYPE html>
+<!-- saved from url=(0762)https://courses.zju.edu.cn/pdf/editor?uploadId=19632680&file=https%3A%2F%2Ftcmedia.zju.edu.cn%2Fdownload%2Ffile%2F88510d094caf8d91d529c79c87fa7ac97f243ee2%3Ftimestamp%3D1773280800%26token%3D04cb75c6437ce1567e9ace44ec31ce5e%26name%3D%25E5%25AE%259E%25E9%25AA%258C1%2520AI%25E8%25AE%25A4%25E8%25AF%2586%25E5%2588%259D%25E6%25AD%25A5%25E5%2592%258CDeepSeek%25E5%25A4%25A7%25E6%25A8%25A1%25E5%259E%258B%25E9%2583%25A8%25E7%25BD%25B2%25E5%25BA%2594%25E7%2594%25A8%25E5%25AE%259E%25E9%25AA%258C%25E6%258A%25A5%25E5%2591%258A.pdf&fileType=document&imgURL=undefined&attachmentUrl=&fileName=%E5%AE%9E%E9%AA%8C1%20AI%E8%AE%A4%E8%AF%86%E5%88%9D%E6%AD%A5%E5%92%8CDeepSeek%E5%A4%A7%E6%A8%A1%E5%9E%8B%E9%83%A8%E7%BD%B2%E5%BA%94%E7%94%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A.pdf -->
+<html dir="ltr" mozdisallowselectionprint="" style="--viewer-container-height: 909px;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style>@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="google" content="notranslate">
+    <title></title>
+
+<!-- This snippet is used in production (included from viewer.html) -->
+<link rel="resource" type="application/l10n" href="https://courses.zju.edu.cn/static/pdf.js-4.5.136-legacy-dist/web/locale/locale.json">
+<script src="./pdf.mjs" type="module"></script>
+  <link rel="stylesheet" href="./viewer.css">
+
+  <script src="./viewer.mjs" type="module"></script>
+  <script src="./jquery.js.下载"></script>
+  <style>
+      html {
+          overflow: hidden;
+          height: 100%;
+      }
+
+      body {
+          overflow: auto;
+          height: 100%;
+      }
+
+#scaleSelect {
+    color: #252933;
+    background: #fff;
+    border: 1px solid #ced2d9;
+    border-radius: 3px;
+    padding: 3px 8px;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 22px;
+    appearance: none;
+}
+#viewerContainer {
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  position: absolute;
+  top: 48px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  outline: 0;
+}
+
+#toolbarContainer,.secondaryToolbar {
+    position: relative;
+    height: 48px;
+    background-color: #fff
+}
+
+.findbar, .secondaryToolbar, .editorParamsToolbar {
+  height: 48px;
+}
+
+.findbar {
+  top: 48px;
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+}
+
+#toolbarViewer {
+  height: 48px;
+}
+
+#toolbarViewerLeft, #toolbarViewerMiddle {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+#sidebarContainer {
+  position: absolute;
+  top: 48px;
+  bottom: 0;
+}
+  </style>
+    <script>
+      window.print = function() {};
+    </script>
+  <style type="text/css">.resize-observer[data-v-8859cc6c]{position:absolute;top:0;left:0;z-index:-1;width:100%;height:100%;border:none;background-color:transparent;pointer-events:none;display:block;overflow:hidden;opacity:0}.resize-observer[data-v-8859cc6c] object{display:block;position:absolute;top:0;left:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1}</style><style data-id="immersive-translate-input-injected-css">.immersive-translate-input {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 2147483647;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.immersive-translate-attach-loading::after {
+  content: " ";
+
+  --loading-color: #f78fb6;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  display: block;
+  margin: 12px auto;
+  position: relative;
+  color: white;
+  left: -100px;
+  box-sizing: border-box;
+  animation: immersiveTranslateShadowRolling 1.5s linear infinite;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-2000%, -50%);
+  z-index: 100;
+}
+
+.immersive-translate-loading-spinner {
+  vertical-align: middle !important;
+  width: 10px !important;
+  height: 10px !important;
+  display: inline-block !important;
+  margin: 0 4px !important;
+  border: 2px rgba(221, 244, 255, 0.6) solid !important;
+  border-top: 2px rgba(0, 0, 0, 0.375) solid !important;
+  border-left: 2px rgba(0, 0, 0, 0.375) solid !important;
+  border-radius: 50% !important;
+  padding: 0 !important;
+  -webkit-animation: immersive-translate-loading-animation 0.6s infinite linear !important;
+  animation: immersive-translate-loading-animation 0.6s infinite linear !important;
+}
+
+@-webkit-keyframes immersive-translate-loading-animation {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(359deg);
+  }
+}
+
+@keyframes immersive-translate-loading-animation {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+.immersive-translate-input-loading {
+  --loading-color: #f78fb6;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  display: block;
+  margin: 12px auto;
+  position: relative;
+  color: white;
+  left: -100px;
+  box-sizing: border-box;
+  animation: immersiveTranslateShadowRolling 1.5s linear infinite;
+}
+
+@keyframes immersiveTranslateShadowRolling {
+  0% {
+    box-shadow: 0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0),
+      0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0);
+  }
+
+  12% {
+    box-shadow: 100px 0 var(--loading-color), 0px 0 rgba(255, 255, 255, 0),
+      0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0);
+  }
+
+  25% {
+    box-shadow: 110px 0 var(--loading-color), 100px 0 var(--loading-color),
+      0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0);
+  }
+
+  36% {
+    box-shadow: 120px 0 var(--loading-color), 110px 0 var(--loading-color),
+      100px 0 var(--loading-color), 0px 0 rgba(255, 255, 255, 0);
+  }
+
+  50% {
+    box-shadow: 130px 0 var(--loading-color), 120px 0 var(--loading-color),
+      110px 0 var(--loading-color), 100px 0 var(--loading-color);
+  }
+
+  62% {
+    box-shadow: 200px 0 rgba(255, 255, 255, 0), 130px 0 var(--loading-color),
+      120px 0 var(--loading-color), 110px 0 var(--loading-color);
+  }
+
+  75% {
+    box-shadow: 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0),
+      130px 0 var(--loading-color), 120px 0 var(--loading-color);
+  }
+
+  87% {
+    box-shadow: 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0),
+      200px 0 rgba(255, 255, 255, 0), 130px 0 var(--loading-color);
+  }
+
+  100% {
+    box-shadow: 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0),
+      200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0);
+  }
+}
+
+.immersive-translate-modal {
+  position: fixed;
+  z-index: 2147483647;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+  font-size: 15px;
+}
+
+.immersive-translate-modal-content {
+  background-color: #fefefe;
+  margin: 10% auto;
+  padding: 40px 24px 24px;
+  border-radius: 12px;
+  width: 350px;
+  font-family: system-ui, -apple-system, "Segoe UI", "Roboto", "Ubuntu",
+    "Cantarell", "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol", "Noto Color Emoji";
+  position: relative;
+}
+
+@media screen and (max-width: 768px) {
+  .immersive-translate-modal-content {
+    margin: 25% auto !important;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .immersive-translate-modal-content {
+    width: 80vw !important;
+    margin: 20vh auto !important;
+    padding: 20px 12px 12px !important;
+  }
+
+  .immersive-translate-modal-title {
+    font-size: 14px !important;
+  }
+
+  .immersive-translate-modal-body {
+    font-size: 13px !important;
+    max-height: 60vh !important;
+  }
+
+  .immersive-translate-btn {
+    font-size: 13px !important;
+    padding: 8px 16px !important;
+    margin: 0 4px !important;
+  }
+
+  .immersive-translate-modal-footer {
+    gap: 6px !important;
+    margin-top: 16px !important;
+  }
+}
+
+.immersive-translate-modal .immersive-translate-modal-content-in-input {
+  max-width: 500px;
+}
+.immersive-translate-modal-content-in-input .immersive-translate-modal-body {
+  text-align: left;
+  max-height: unset;
+}
+
+.immersive-translate-modal-title {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 700;
+  color: #333333;
+}
+
+.immersive-translate-modal-body {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 400;
+  color: #333333;
+  margin-top: 24px;
+}
+
+@media screen and (max-width: 768px) {
+  .immersive-translate-modal-body {
+    max-height: 250px;
+    overflow-y: auto;
+  }
+}
+
+.immersive-translate-close {
+  color: #666666;
+  position: absolute;
+  right: 16px;
+  top: 16px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.immersive-translate-close:hover,
+.immersive-translate-close:focus {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.immersive-translate-modal-footer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+
+.immersive-translate-btn {
+  width: fit-content;
+  color: #fff;
+  background-color: #ea4c89;
+  border: none;
+  font-size: 14px;
+  margin: 0 8px;
+  padding: 9px 30px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.immersive-translate-btn-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.immersive-translate-btn:hover {
+  background-color: #f082ac;
+}
+.immersive-translate-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.immersive-translate-btn:disabled:hover {
+  background-color: #ea4c89;
+}
+
+.immersive-translate-link-btn {
+  background-color: transparent;
+  color: #ea4c89;
+  border: none;
+  cursor: pointer;
+  height: 30px;
+  line-height: 30px;
+}
+
+.immersive-translate-cancel-btn {
+  /* gray color */
+  background-color: rgb(89, 107, 120);
+}
+
+.immersive-translate-cancel-btn:hover {
+  background-color: hsl(205, 20%, 32%);
+}
+
+.immersive-translate-action-btn {
+  background-color: transparent;
+  color: #ea4c89;
+  border: 1px solid #ea4c89;
+}
+
+.immersive-translate-btn svg {
+  margin-right: 5px;
+}
+
+.immersive-translate-link {
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-drag: none;
+  text-decoration: none;
+  color: #ea4c89;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+}
+
+.immersive-translate-primary-link {
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-drag: none;
+  text-decoration: none;
+  color: #ea4c89;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+}
+
+.immersive-translate-modal input[type="radio"] {
+  margin: 0 6px;
+  cursor: pointer;
+}
+
+.immersive-translate-modal label {
+  cursor: pointer;
+}
+
+.immersive-translate-close-action {
+  position: absolute;
+  top: 2px;
+  right: 0px;
+  cursor: pointer;
+}
+
+.imt-image-status {
+  background-color: rgba(0, 0, 0, 0.5) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 16px !important;
+}
+.imt-image-status img,
+.imt-image-status svg,
+.imt-img-loading {
+  width: 28px !important;
+  height: 28px !important;
+  margin: 0 0 8px 0 !important;
+  min-height: 28px !important;
+  min-width: 28px !important;
+  position: relative !important;
+}
+.imt-img-loading {
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADgAAAA4CAMAAACfWMssAAAAtFBMVEUAAAD////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////oK74hAAAAPHRSTlMABBMIDyQXHwyBfFdDMSw+OjXCb+5RG51IvV/k0rOqlGRM6KKMhdvNyZBz9MaupmxpWyj437iYd/yJVNZeuUC7AAACt0lEQVRIx53T2XKiUBCA4QYOiyCbiAsuuGBcYtxiYtT3f6/pbqoYHVFO5r+iivpo6DpAWYpqeoFfr9f90DsYAuRSWkFnPO50OgR9PwiCUFcl2GEcx+N/YBh6pvKaefHlUgZd1zVe0NbYcQjGBfzrPE8Xz8aF+71D8gG6DHFPpc4a7xFiCDuhaWgKgGIJQ3d5IMGDrpS4S5KgpIm+en9f6PlAhKby4JwEIxlYJV9h5k5nee9GoxHJ2IDSNB0dwdad1NAxDJ/uXDHYmebdk4PdbkS58CIVHdYSUHTYYRWOJblWSyu2lmy3KNFVJNBhxcuGW4YBVCbYGRZwIooipHsNqjM4FbgOQqQqSKQQU9V8xmi1QlgHqQQ6DDBvRUVCDirs+EzGDGOQTCATgtYTnbCVLgsVgRE0T1QE0qHCFAht2z6dLvJQs3Lo2FQoDxWNUiBhaP4eRgwNkI+dAjVOA/kUrIDwf3CG8NfNOE0eiFotSuo+rBiq8tD9oY4Qzc6YJw99hl1wzpQvD7ef2M8QgnOGJfJw+EltQc+oX2yn907QB22WZcvlUpd143dqQu+8pCJZuGE4xCuPXJqqcs5sNpsI93Rmzym1k4Npk+oD1SH3/a3LOK/JpUBpWfqNySxWzCfNCUITuDG5dtuphrUJ1myeIE9bIsPiKrfqTai5WZxbhtNphYx6GEIHihyGFTI69lje/rxajdh0s0msZ0zYxyPLhYCb1CyHm9Qsd2H37Y3lugVwL9kNh8Ot8cha6fUNQ8nuXi5z9/ExsAO4zQrb/ev1yrCB7lGyQzgYDGuxq1toDN/JGvN+HyWNHKB7zEoK+PX11e12G431erGYzwmytAWU56fkMHY5JJnDRR2eZji3AwtIcrEV8Cojat/BdQ7XOwGV1e1hDjGGjXbdArm8uJZtCH5MbcctVX8A1WpqumJHwckAAAAASUVORK5CYII=");
+  background-size: 28px 28px;
+  animation: image-loading-rotate 1s linear infinite !important;
+}
+
+.imt-image-status span {
+  color: var(--bg-2, #fff) !important;
+  font-size: 14px !important;
+  line-height: 14px !important;
+  font-weight: 500 !important;
+  font-family: "PingFang SC", Arial, sans-serif !important;
+}
+
+.imt-primary-button {
+  display: flex;
+  padding: 12px 80px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border-radius: 8px;
+  background: #ea4c89;
+  color: #fff;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px;
+  border: none;
+  cursor: pointer;
+}
+
+.imt-retry-text {
+  color: #999;
+  text-align: center;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 21px;
+  cursor: pointer;
+}
+
+.imt-action-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.imt-modal-content-text {
+  text-align: left;
+  color: #333;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+@keyframes image-loading-rotate {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+.imt-linear-gradient-text {
+  background: linear-gradient(90deg, #00a6ff 0%, #c369ff 52.4%, #ff4590 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.imt-flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.imt-linear-black-btn {
+  border-radius: 50px;
+  background: linear-gradient(66deg, #222 19%, #696969 94.25%);
+  height: 48px;
+  width: 100%;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  justify-content: center;
+}
+</style></head>
+
+  <body tabindex="1"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="position: absolute; width: 0; height: 0" aria-hidden="true" id="__SVG_SPRITE_NODE__"><symbol xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 30 24" id="comment">
+    <defs>
+        <lineargradient id="comment_prefix__c" x1="50%" x2="50%" y1="-26.256%" y2="100%">
+            <stop offset="0%" stop-color="#FFC12F"></stop>
+            <stop offset="100%" stop-color="#FFB300"></stop>
+        </lineargradient>
+        <filter id="comment_prefix__a" width="119.2%" height="122.2%" x="-9.6%" y="-11.1%" filterUnits="objectBoundingBox">
+            <feoffset in="SourceAlpha" result="shadowOffsetOuter1"></feoffset>
+            <fegaussianblur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation=".5"></fegaussianblur>
+            <fecolormatrix in="shadowBlurOuter1" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.16 0"></fecolormatrix>
+        </filter>
+        <path id="comment_prefix__b" d="M15.747 2.25H2.099c-.538 0-.974.439-.974.98v9.8c0 .542.437.98.974.98h4.874l1.605 1.614c.091.092.215.144.346.144.129 0 .253-.052.344-.144l1.605-1.613h4.874c.538 0 .974-.439.974-.98V3.23c0-.541-.436-.98-.974-.98m-7.17 5.546H2.684c-.287 0-.52-.233-.52-.52 0-.287.233-.52.52-.52h5.893c.287 0 .52.232.52.52 0 .287-.233.52-.52.52m3.465-2.08H2.684c-.287 0-.52-.233-.52-.52 0-.286.233-.52.52-.52h9.358c.288 0 .52.234.52.52 0 .287-.232.52-.52.52"></path>
+    </defs>
+    <g fill="none" fill-rule="evenodd" transform="translate(6 3)">
+        <use fill="url(#comment_prefix__c)" xlink:href="#comment_prefix__b"></use>
+    </g>
+</symbol><symbol xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 30 24" id="correct">
+    <defs>
+        <lineargradient id="correct_prefix__c" x1="50%" x2="50%" y1="-26.256%" y2="100%">
+            <stop offset="0%" stop-color="#87E860"></stop>
+            <stop offset="100%" stop-color="#6FD148"></stop>
+        </lineargradient>
+        <filter id="correct_prefix__a" width="116.7%" height="119%" x="-8.3%" y="-9.5%" filterUnits="objectBoundingBox">
+            <feoffset in="SourceAlpha" result="shadowOffsetOuter1"></feoffset>
+            <fegaussianblur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation=".5"></fegaussianblur>
+            <fecolormatrix in="shadowBlurOuter1" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.16 0"></fecolormatrix>
+        </filter>
+        <path id="correct_prefix__b" d="M17.538 1.125c-5.473 3.403-9.441 7.702-11.231 9.856L1.934 7.504 0 9.08l7.551 7.794C8.846 13.499 12.968 6.9 18 2.211l-.462-1.086"></path>
+    </defs>
+    <g fill="none" fill-rule="evenodd" transform="translate(6 3)">
+        <use fill="url(#correct_prefix__c)" xlink:href="#correct_prefix__b"></use>
+    </g>
+</symbol><symbol xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 30 24" id="error">
+    <defs>
+        <lineargradient id="error_prefix__c" x1="50%" x2="50%" y1="-26.256%" y2="100%">
+            <stop offset="0%" stop-color="#FF5A71"></stop>
+            <stop offset="100%" stop-color="#F0485F"></stop>
+        </lineargradient>
+        <filter id="error_prefix__a" width="119.6%" height="119.1%" x="-9.8%" y="-9.5%" filterUnits="objectBoundingBox">
+            <feoffset in="SourceAlpha" result="shadowOffsetOuter1"></feoffset>
+            <fegaussianblur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation=".5"></fegaussianblur>
+            <fecolormatrix in="shadowBlurOuter1" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.16 0"></fecolormatrix>
+        </filter>
+        <path id="error_prefix__b" d="M2.387 1.688c2.23 1.294 4.431 2.93 6.604 4.907 2.245-1.998 4.422-3.555 6.53-4.669.132.371.296.72.492 1.048h-.001c-2.103 1.763-3.95 3.438-5.54 5.026 2.017 1.992 4.009 4.282 5.975 6.868-1.217.774-2.177 1.625-2.882 2.556-.79-2.181-2.442-4.672-4.958-7.472-2.533 2.787-4.196 5.277-4.99 7.47-.696-.92-1.538-1.721-2.492-2.37 2.046-2.554 4.042-4.786 5.988-6.697-1.69-1.736-3.686-3.583-5.988-5.539.413-.378.834-.755 1.262-1.128z"></path>
+    </defs>
+    <g fill="none" fill-rule="evenodd" transform="translate(6 3)">
+        <use fill="url(#error_prefix__c)" xlink:href="#error_prefix__b"></use>
+    </g>
+</symbol><symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900" fill="none" id="close-popup">
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M450 490.5l-387.6 401c-10.8 11.2-28.6 11.5-39.8.7s-11.5-28.6-.7-39.8l389-402.4L22 47.7c-10.8-11.2-10.5-29 .7-39.8s29-10.5 39.8.7l387.6 401 387.6-401c10.8-11.2 28.6-11.5 39.8-.7s11.5 28.6.7 39.8L489.1 450 878 852.3c10.8 11.2 10.5 29-.7 39.8s-29 10.5-39.8-.7L450 490.5z" fill="#333"></path>
+</symbol><symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" id="halfPair">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M10.3773 20L2.69998 12.0175L4.63974 10.5442L9.39386 14.7386C10.7769 12.8565 12.1841 11.2428 13.5163 9.88132L10.0129 6.36054L11.7836 5.02623L14.9078 8.52092C18.2368 5.40868 20.803 4 20.803 4L21.2889 5.069C19.5981 6.5455 17.9743 8.41351 16.5198 10.324L17.8565 11.8192L16.668 13.0486L15.43 11.8045C12.4275 16.0179 10.3773 20 10.3773 20Z" fill="#FF8A00"></path>
+</symbol><symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 22" fill="none" id="delete">
+<path d="M16.8401 5.15976C16.6271 4.94675 16.2817 4.94675 16.0687 5.15976L11 10.2285L5.93131 5.15976C5.7183 4.94675 5.37295 4.94675 5.15993 5.15976C4.97059 5.34911 4.94955 5.64302 5.09682 5.85561L5.15993 5.93115L10.2286 10.9999L5.15976 16.0689L5.09664 16.1444C4.94938 16.357 4.97042 16.6509 5.15976 16.8402C5.37277 17.0533 5.71813 17.0533 5.93114 16.8402L11 11.7713L16.0689 16.8402C16.2819 17.0533 16.6272 17.0533 16.8402 16.8402C17.0296 16.6509 17.0506 16.357 16.9034 16.1444L16.8402 16.0689L11.7714 10.9999L16.8401 5.93115L16.9032 5.85561C17.0504 5.64302 17.0294 5.34911 16.8401 5.15976Z" fill="#D26501"></path>
+</symbol><symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 22" fill="none" id="delete-hover">
+<path d="M0 2C0 0.89543 0.895431 0 2 0H20C21.1046 0 22 0.895431 22 2V20C22 21.1046 21.1046 22 20 22H2C0.89543 22 0 21.1046 0 20V2Z" fill="#D26501" fill-opacity="0.24"></path>
+<path d="M16.8401 5.15976C16.6271 4.94675 16.2817 4.94675 16.0687 5.15976L11 10.2285L5.93131 5.15976C5.7183 4.94675 5.37295 4.94675 5.15993 5.15976C4.97059 5.34911 4.94955 5.64302 5.09682 5.85561L5.15993 5.93115L10.2286 10.9999L5.15976 16.0689L5.09664 16.1444C4.94938 16.357 4.97042 16.6509 5.15976 16.8402C5.37277 17.0533 5.71813 17.0533 5.93114 16.8402L11 11.7713L16.0689 16.8402C16.2819 17.0533 16.6272 17.0533 16.8402 16.8402C17.0296 16.6509 17.0506 16.357 16.9034 16.1444L16.8402 16.0689L11.7714 10.9999L16.8401 5.93115L16.9032 5.85561C17.0504 5.64302 17.0294 5.34911 16.8401 5.15976Z" fill="#D26501"></path>
+</symbol></svg>
+    <div id="outerContainer" lang="zh-CN">
+
+      <div id="sidebarContainer">
+        <div id="toolbarSidebar">
+          <div id="toolbarSidebarLeft">
+            <div id="sidebarViewButtons" class="splitToolbarButton toggled" role="radiogroup">
+              <button id="viewThumbnail" class="toolbarButton toggled" type="button" title="显示缩略图" tabindex="2" data-l10n-id="pdfjs-thumbs-button" role="radio" aria-checked="true" aria-controls="thumbnailView">
+                 <span data-l10n-id="pdfjs-thumbs-button-label">缩略图</span>
+              </button>
+              <button id="viewOutline" class="toolbarButton" type="button" title="显示文档大纲（双击展开/折叠所有项）" tabindex="3" data-l10n-id="pdfjs-document-outline-button" role="radio" aria-checked="false" aria-controls="outlineView" disabled="">
+                 <span data-l10n-id="pdfjs-document-outline-button-label">文档大纲</span>
+              </button>
+              <button id="viewAttachments" class="toolbarButton" type="button" title="显示附件" tabindex="4" data-l10n-id="pdfjs-attachments-button" role="radio" aria-checked="false" aria-controls="attachmentsView" disabled="">
+                 <span data-l10n-id="pdfjs-attachments-button-label">附件</span>
+              </button>
+              <button id="viewLayers" class="toolbarButton" type="button" title="显示图层（双击即可将所有图层重置为默认状态）" tabindex="5" data-l10n-id="pdfjs-layers-button" role="radio" aria-checked="false" aria-controls="layersView" disabled="">
+                 <span data-l10n-id="pdfjs-layers-button-label">图层</span>
+              </button>
+            </div>
+          </div>
+
+          <div id="toolbarSidebarRight">
+            <div id="outlineOptionsContainer">
+              <div class="verticalToolbarSeparator"></div>
+
+              <button id="currentOutlineItem" class="toolbarButton" type="button" disabled="" title="查找当前大纲项目" tabindex="6" data-l10n-id="pdfjs-current-outline-item-button">
+                <span data-l10n-id="pdfjs-current-outline-item-button-label">当前大纲项目</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div id="sidebarContent">
+          <div id="thumbnailView"><a href="https://courses.zju.edu.cn/pdf/editor?uploadId=19632680&amp;file=https%3A%2F%2Ftcmedia.zju.edu.cn%2Fdownload%2Ffile%2F88510d094caf8d91d529c79c87fa7ac97f243ee2%3Ftimestamp%3D1773280800%26token%3D04cb75c6437ce1567e9ace44ec31ce5e%26name%3D%25E5%25AE%259E%25E9%25AA%258C1%2520AI%25E8%25AE%25A4%25E8%25AF%2586%25E5%2588%259D%25E6%25AD%25A5%25E5%2592%258CDeepSeek%25E5%25A4%25A7%25E6%25A8%25A1%25E5%259E%258B%25E9%2583%25A8%25E7%25BD%25B2%25E5%25BA%2594%25E7%2594%25A8%25E5%25AE%259E%25E9%25AA%258C%25E6%258A%25A5%25E5%2591%258A.pdf&amp;fileType=document&amp;imgURL=undefined&amp;attachmentUrl=&amp;fileName=%E5%AE%9E%E9%AA%8C1%20AI%E8%AE%A4%E8%AF%86%E5%88%9D%E6%AD%A5%E5%92%8CDeepSeek%E5%A4%A7%E6%A8%A1%E5%9E%8B%E9%83%A8%E7%BD%B2%E5%BA%94%E7%94%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A.pdf#page=1" data-l10n-id="pdfjs-thumb-page-title" data-l10n-args="{&quot;page&quot;:1}" title="第 ⁨1⁩ 页"><div class="thumbnail selected" data-page-number="1" style="--thumbnail-width: 98px; --thumbnail-height: 138px;"><div class="thumbnailImage"></div></div></a><a href="https://courses.zju.edu.cn/pdf/editor?uploadId=19632680&amp;file=https%3A%2F%2Ftcmedia.zju.edu.cn%2Fdownload%2Ffile%2F88510d094caf8d91d529c79c87fa7ac97f243ee2%3Ftimestamp%3D1773280800%26token%3D04cb75c6437ce1567e9ace44ec31ce5e%26name%3D%25E5%25AE%259E%25E9%25AA%258C1%2520AI%25E8%25AE%25A4%25E8%25AF%2586%25E5%2588%259D%25E6%25AD%25A5%25E5%2592%258CDeepSeek%25E5%25A4%25A7%25E6%25A8%25A1%25E5%259E%258B%25E9%2583%25A8%25E7%25BD%25B2%25E5%25BA%2594%25E7%2594%25A8%25E5%25AE%259E%25E9%25AA%258C%25E6%258A%25A5%25E5%2591%258A.pdf&amp;fileType=document&amp;imgURL=undefined&amp;attachmentUrl=&amp;fileName=%E5%AE%9E%E9%AA%8C1%20AI%E8%AE%A4%E8%AF%86%E5%88%9D%E6%AD%A5%E5%92%8CDeepSeek%E5%A4%A7%E6%A8%A1%E5%9E%8B%E9%83%A8%E7%BD%B2%E5%BA%94%E7%94%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A.pdf#page=2" data-l10n-id="pdfjs-thumb-page-title" data-l10n-args="{&quot;page&quot;:2}" title="第 ⁨2⁩ 页"><div class="thumbnail" data-page-number="2" style="--thumbnail-width: 98px; --thumbnail-height: 138px;"><div class="thumbnailImage"></div></div></a><a href="https://courses.zju.edu.cn/pdf/editor?uploadId=19632680&amp;file=https%3A%2F%2Ftcmedia.zju.edu.cn%2Fdownload%2Ffile%2F88510d094caf8d91d529c79c87fa7ac97f243ee2%3Ftimestamp%3D1773280800%26token%3D04cb75c6437ce1567e9ace44ec31ce5e%26name%3D%25E5%25AE%259E%25E9%25AA%258C1%2520AI%25E8%25AE%25A4%25E8%25AF%2586%25E5%2588%259D%25E6%25AD%25A5%25E5%2592%258CDeepSeek%25E5%25A4%25A7%25E6%25A8%25A1%25E5%259E%258B%25E9%2583%25A8%25E7%25BD%25B2%25E5%25BA%2594%25E7%2594%25A8%25E5%25AE%259E%25E9%25AA%258C%25E6%258A%25A5%25E5%2591%258A.pdf&amp;fileType=document&amp;imgURL=undefined&amp;attachmentUrl=&amp;fileName=%E5%AE%9E%E9%AA%8C1%20AI%E8%AE%A4%E8%AF%86%E5%88%9D%E6%AD%A5%E5%92%8CDeepSeek%E5%A4%A7%E6%A8%A1%E5%9E%8B%E9%83%A8%E7%BD%B2%E5%BA%94%E7%94%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A.pdf#page=3" data-l10n-id="pdfjs-thumb-page-title" data-l10n-args="{&quot;page&quot;:3}" title="第 ⁨3⁩ 页"><div class="thumbnail" data-page-number="3" style="--thumbnail-width: 98px; --thumbnail-height: 138px;"><div class="thumbnailImage"></div></div></a><a href="https://courses.zju.edu.cn/pdf/editor?uploadId=19632680&amp;file=https%3A%2F%2Ftcmedia.zju.edu.cn%2Fdownload%2Ffile%2F88510d094caf8d91d529c79c87fa7ac97f243ee2%3Ftimestamp%3D1773280800%26token%3D04cb75c6437ce1567e9ace44ec31ce5e%26name%3D%25E5%25AE%259E%25E9%25AA%258C1%2520AI%25E8%25AE%25A4%25E8%25AF%2586%25E5%2588%259D%25E6%25AD%25A5%25E5%2592%258CDeepSeek%25E5%25A4%25A7%25E6%25A8%25A1%25E5%259E%258B%25E9%2583%25A8%25E7%25BD%25B2%25E5%25BA%2594%25E7%2594%25A8%25E5%25AE%259E%25E9%25AA%258C%25E6%258A%25A5%25E5%2591%258A.pdf&amp;fileType=document&amp;imgURL=undefined&amp;attachmentUrl=&amp;fileName=%E5%AE%9E%E9%AA%8C1%20AI%E8%AE%A4%E8%AF%86%E5%88%9D%E6%AD%A5%E5%92%8CDeepSeek%E5%A4%A7%E6%A8%A1%E5%9E%8B%E9%83%A8%E7%BD%B2%E5%BA%94%E7%94%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A.pdf#page=4" data-l10n-id="pdfjs-thumb-page-title" data-l10n-args="{&quot;page&quot;:4}" title="第 ⁨4⁩ 页"><div class="thumbnail" data-page-number="4" style="--thumbnail-width: 98px; --thumbnail-height: 138px;"><div class="thumbnailImage"></div></div></a><a href="https://courses.zju.edu.cn/pdf/editor?uploadId=19632680&amp;file=https%3A%2F%2Ftcmedia.zju.edu.cn%2Fdownload%2Ffile%2F88510d094caf8d91d529c79c87fa7ac97f243ee2%3Ftimestamp%3D1773280800%26token%3D04cb75c6437ce1567e9ace44ec31ce5e%26name%3D%25E5%25AE%259E%25E9%25AA%258C1%2520AI%25E8%25AE%25A4%25E8%25AF%2586%25E5%2588%259D%25E6%25AD%25A5%25E5%2592%258CDeepSeek%25E5%25A4%25A7%25E6%25A8%25A1%25E5%259E%258B%25E9%2583%25A8%25E7%25BD%25B2%25E5%25BA%2594%25E7%2594%25A8%25E5%25AE%259E%25E9%25AA%258C%25E6%258A%25A5%25E5%2591%258A.pdf&amp;fileType=document&amp;imgURL=undefined&amp;attachmentUrl=&amp;fileName=%E5%AE%9E%E9%AA%8C1%20AI%E8%AE%A4%E8%AF%86%E5%88%9D%E6%AD%A5%E5%92%8CDeepSeek%E5%A4%A7%E6%A8%A1%E5%9E%8B%E9%83%A8%E7%BD%B2%E5%BA%94%E7%94%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A.pdf#page=5" data-l10n-id="pdfjs-thumb-page-title" data-l10n-args="{&quot;page&quot;:5}" title="第 ⁨5⁩ 页"><div class="thumbnail" data-page-number="5" style="--thumbnail-width: 98px; --thumbnail-height: 138px;"><div class="thumbnailImage"></div></div></a><a href="https://courses.zju.edu.cn/pdf/editor?uploadId=19632680&amp;file=https%3A%2F%2Ftcmedia.zju.edu.cn%2Fdownload%2Ffile%2F88510d094caf8d91d529c79c87fa7ac97f243ee2%3Ftimestamp%3D1773280800%26token%3D04cb75c6437ce1567e9ace44ec31ce5e%26name%3D%25E5%25AE%259E%25E9%25AA%258C1%2520AI%25E8%25AE%25A4%25E8%25AF%2586%25E5%2588%259D%25E6%25AD%25A5%25E5%2592%258CDeepSeek%25E5%25A4%25A7%25E6%25A8%25A1%25E5%259E%258B%25E9%2583%25A8%25E7%25BD%25B2%25E5%25BA%2594%25E7%2594%25A8%25E5%25AE%259E%25E9%25AA%258C%25E6%258A%25A5%25E5%2591%258A.pdf&amp;fileType=document&amp;imgURL=undefined&amp;attachmentUrl=&amp;fileName=%E5%AE%9E%E9%AA%8C1%20AI%E8%AE%A4%E8%AF%86%E5%88%9D%E6%AD%A5%E5%92%8CDeepSeek%E5%A4%A7%E6%A8%A1%E5%9E%8B%E9%83%A8%E7%BD%B2%E5%BA%94%E7%94%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A.pdf#page=6" data-l10n-id="pdfjs-thumb-page-title" data-l10n-args="{&quot;page&quot;:6}" title="第 ⁨6⁩ 页"><div class="thumbnail" data-page-number="6" style="--thumbnail-width: 98px; --thumbnail-height: 138px;"><div class="thumbnailImage"></div></div></a><a href="https://courses.zju.edu.cn/pdf/editor?uploadId=19632680&amp;file=https%3A%2F%2Ftcmedia.zju.edu.cn%2Fdownload%2Ffile%2F88510d094caf8d91d529c79c87fa7ac97f243ee2%3Ftimestamp%3D1773280800%26token%3D04cb75c6437ce1567e9ace44ec31ce5e%26name%3D%25E5%25AE%259E%25E9%25AA%258C1%2520AI%25E8%25AE%25A4%25E8%25AF%2586%25E5%2588%259D%25E6%25AD%25A5%25E5%2592%258CDeepSeek%25E5%25A4%25A7%25E6%25A8%25A1%25E5%259E%258B%25E9%2583%25A8%25E7%25BD%25B2%25E5%25BA%2594%25E7%2594%25A8%25E5%25AE%259E%25E9%25AA%258C%25E6%258A%25A5%25E5%2591%258A.pdf&amp;fileType=document&amp;imgURL=undefined&amp;attachmentUrl=&amp;fileName=%E5%AE%9E%E9%AA%8C1%20AI%E8%AE%A4%E8%AF%86%E5%88%9D%E6%AD%A5%E5%92%8CDeepSeek%E5%A4%A7%E6%A8%A1%E5%9E%8B%E9%83%A8%E7%BD%B2%E5%BA%94%E7%94%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A.pdf#page=7" data-l10n-id="pdfjs-thumb-page-title" data-l10n-args="{&quot;page&quot;:7}" title="第 ⁨7⁩ 页"><div class="thumbnail" data-page-number="7" style="--thumbnail-width: 98px; --thumbnail-height: 138px;"><div class="thumbnailImage"></div></div></a><a href="https://courses.zju.edu.cn/pdf/editor?uploadId=19632680&amp;file=https%3A%2F%2Ftcmedia.zju.edu.cn%2Fdownload%2Ffile%2F88510d094caf8d91d529c79c87fa7ac97f243ee2%3Ftimestamp%3D1773280800%26token%3D04cb75c6437ce1567e9ace44ec31ce5e%26name%3D%25E5%25AE%259E%25E9%25AA%258C1%2520AI%25E8%25AE%25A4%25E8%25AF%2586%25E5%2588%259D%25E6%25AD%25A5%25E5%2592%258CDeepSeek%25E5%25A4%25A7%25E6%25A8%25A1%25E5%259E%258B%25E9%2583%25A8%25E7%25BD%25B2%25E5%25BA%2594%25E7%2594%25A8%25E5%25AE%259E%25E9%25AA%258C%25E6%258A%25A5%25E5%2591%258A.pdf&amp;fileType=document&amp;imgURL=undefined&amp;attachmentUrl=&amp;fileName=%E5%AE%9E%E9%AA%8C1%20AI%E8%AE%A4%E8%AF%86%E5%88%9D%E6%AD%A5%E5%92%8CDeepSeek%E5%A4%A7%E6%A8%A1%E5%9E%8B%E9%83%A8%E7%BD%B2%E5%BA%94%E7%94%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A.pdf#page=8" data-l10n-id="pdfjs-thumb-page-title" data-l10n-args="{&quot;page&quot;:8}" title="第 ⁨8⁩ 页"><div class="thumbnail" data-page-number="8" style="--thumbnail-width: 98px; --thumbnail-height: 138px;"><div class="thumbnailImage"></div></div></a><a href="https://courses.zju.edu.cn/pdf/editor?uploadId=19632680&amp;file=https%3A%2F%2Ftcmedia.zju.edu.cn%2Fdownload%2Ffile%2F88510d094caf8d91d529c79c87fa7ac97f243ee2%3Ftimestamp%3D1773280800%26token%3D04cb75c6437ce1567e9ace44ec31ce5e%26name%3D%25E5%25AE%259E%25E9%25AA%258C1%2520AI%25E8%25AE%25A4%25E8%25AF%2586%25E5%2588%259D%25E6%25AD%25A5%25E5%2592%258CDeepSeek%25E5%25A4%25A7%25E6%25A8%25A1%25E5%259E%258B%25E9%2583%25A8%25E7%25BD%25B2%25E5%25BA%2594%25E7%2594%25A8%25E5%25AE%259E%25E9%25AA%258C%25E6%258A%25A5%25E5%2591%258A.pdf&amp;fileType=document&amp;imgURL=undefined&amp;attachmentUrl=&amp;fileName=%E5%AE%9E%E9%AA%8C1%20AI%E8%AE%A4%E8%AF%86%E5%88%9D%E6%AD%A5%E5%92%8CDeepSeek%E5%A4%A7%E6%A8%A1%E5%9E%8B%E9%83%A8%E7%BD%B2%E5%BA%94%E7%94%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A.pdf#page=9" data-l10n-id="pdfjs-thumb-page-title" data-l10n-args="{&quot;page&quot;:9}" title="第 ⁨9⁩ 页"><div class="thumbnail" data-page-number="9" style="--thumbnail-width: 98px; --thumbnail-height: 138px;"><div class="thumbnailImage"></div></div></a><a href="https://courses.zju.edu.cn/pdf/editor?uploadId=19632680&amp;file=https%3A%2F%2Ftcmedia.zju.edu.cn%2Fdownload%2Ffile%2F88510d094caf8d91d529c79c87fa7ac97f243ee2%3Ftimestamp%3D1773280800%26token%3D04cb75c6437ce1567e9ace44ec31ce5e%26name%3D%25E5%25AE%259E%25E9%25AA%258C1%2520AI%25E8%25AE%25A4%25E8%25AF%2586%25E5%2588%259D%25E6%25AD%25A5%25E5%2592%258CDeepSeek%25E5%25A4%25A7%25E6%25A8%25A1%25E5%259E%258B%25E9%2583%25A8%25E7%25BD%25B2%25E5%25BA%2594%25E7%2594%25A8%25E5%25AE%259E%25E9%25AA%258C%25E6%258A%25A5%25E5%2591%258A.pdf&amp;fileType=document&amp;imgURL=undefined&amp;attachmentUrl=&amp;fileName=%E5%AE%9E%E9%AA%8C1%20AI%E8%AE%A4%E8%AF%86%E5%88%9D%E6%AD%A5%E5%92%8CDeepSeek%E5%A4%A7%E6%A8%A1%E5%9E%8B%E9%83%A8%E7%BD%B2%E5%BA%94%E7%94%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A.pdf#page=10" data-l10n-id="pdfjs-thumb-page-title" data-l10n-args="{&quot;page&quot;:10}" title="第 ⁨10⁩ 页"><div class="thumbnail" data-page-number="10" style="--thumbnail-width: 98px; --thumbnail-height: 138px;"><div class="thumbnailImage"></div></div></a><a href="https://courses.zju.edu.cn/pdf/editor?uploadId=19632680&amp;file=https%3A%2F%2Ftcmedia.zju.edu.cn%2Fdownload%2Ffile%2F88510d094caf8d91d529c79c87fa7ac97f243ee2%3Ftimestamp%3D1773280800%26token%3D04cb75c6437ce1567e9ace44ec31ce5e%26name%3D%25E5%25AE%259E%25E9%25AA%258C1%2520AI%25E8%25AE%25A4%25E8%25AF%2586%25E5%2588%259D%25E6%25AD%25A5%25E5%2592%258CDeepSeek%25E5%25A4%25A7%25E6%25A8%25A1%25E5%259E%258B%25E9%2583%25A8%25E7%25BD%25B2%25E5%25BA%2594%25E7%2594%25A8%25E5%25AE%259E%25E9%25AA%258C%25E6%258A%25A5%25E5%2591%258A.pdf&amp;fileType=document&amp;imgURL=undefined&amp;attachmentUrl=&amp;fileName=%E5%AE%9E%E9%AA%8C1%20AI%E8%AE%A4%E8%AF%86%E5%88%9D%E6%AD%A5%E5%92%8CDeepSeek%E5%A4%A7%E6%A8%A1%E5%9E%8B%E9%83%A8%E7%BD%B2%E5%BA%94%E7%94%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A.pdf#page=11" data-l10n-id="pdfjs-thumb-page-title" data-l10n-args="{&quot;page&quot;:11}" title="第 ⁨11⁩ 页"><div class="thumbnail" data-page-number="11" style="--thumbnail-width: 98px; --thumbnail-height: 138px;"><div class="thumbnailImage"></div></div></a><a href="https://courses.zju.edu.cn/pdf/editor?uploadId=19632680&amp;file=https%3A%2F%2Ftcmedia.zju.edu.cn%2Fdownload%2Ffile%2F88510d094caf8d91d529c79c87fa7ac97f243ee2%3Ftimestamp%3D1773280800%26token%3D04cb75c6437ce1567e9ace44ec31ce5e%26name%3D%25E5%25AE%259E%25E9%25AA%258C1%2520AI%25E8%25AE%25A4%25E8%25AF%2586%25E5%2588%259D%25E6%25AD%25A5%25E5%2592%258CDeepSeek%25E5%25A4%25A7%25E6%25A8%25A1%25E5%259E%258B%25E9%2583%25A8%25E7%25BD%25B2%25E5%25BA%2594%25E7%2594%25A8%25E5%25AE%259E%25E9%25AA%258C%25E6%258A%25A5%25E5%2591%258A.pdf&amp;fileType=document&amp;imgURL=undefined&amp;attachmentUrl=&amp;fileName=%E5%AE%9E%E9%AA%8C1%20AI%E8%AE%A4%E8%AF%86%E5%88%9D%E6%AD%A5%E5%92%8CDeepSeek%E5%A4%A7%E6%A8%A1%E5%9E%8B%E9%83%A8%E7%BD%B2%E5%BA%94%E7%94%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A.pdf#page=12" data-l10n-id="pdfjs-thumb-page-title" data-l10n-args="{&quot;page&quot;:12}" title="第 ⁨12⁩ 页"><div class="thumbnail" data-page-number="12" style="--thumbnail-width: 98px; --thumbnail-height: 138px;"><div class="thumbnailImage"></div></div></a><a href="https://courses.zju.edu.cn/pdf/editor?uploadId=19632680&amp;file=https%3A%2F%2Ftcmedia.zju.edu.cn%2Fdownload%2Ffile%2F88510d094caf8d91d529c79c87fa7ac97f243ee2%3Ftimestamp%3D1773280800%26token%3D04cb75c6437ce1567e9ace44ec31ce5e%26name%3D%25E5%25AE%259E%25E9%25AA%258C1%2520AI%25E8%25AE%25A4%25E8%25AF%2586%25E5%2588%259D%25E6%25AD%25A5%25E5%2592%258CDeepSeek%25E5%25A4%25A7%25E6%25A8%25A1%25E5%259E%258B%25E9%2583%25A8%25E7%25BD%25B2%25E5%25BA%2594%25E7%2594%25A8%25E5%25AE%259E%25E9%25AA%258C%25E6%258A%25A5%25E5%2591%258A.pdf&amp;fileType=document&amp;imgURL=undefined&amp;attachmentUrl=&amp;fileName=%E5%AE%9E%E9%AA%8C1%20AI%E8%AE%A4%E8%AF%86%E5%88%9D%E6%AD%A5%E5%92%8CDeepSeek%E5%A4%A7%E6%A8%A1%E5%9E%8B%E9%83%A8%E7%BD%B2%E5%BA%94%E7%94%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A.pdf#page=13" data-l10n-id="pdfjs-thumb-page-title" data-l10n-args="{&quot;page&quot;:13}" title="第 ⁨13⁩ 页"><div class="thumbnail" data-page-number="13" style="--thumbnail-width: 98px; --thumbnail-height: 138px;"><div class="thumbnailImage"></div></div></a><a href="https://courses.zju.edu.cn/pdf/editor?uploadId=19632680&amp;file=https%3A%2F%2Ftcmedia.zju.edu.cn%2Fdownload%2Ffile%2F88510d094caf8d91d529c79c87fa7ac97f243ee2%3Ftimestamp%3D1773280800%26token%3D04cb75c6437ce1567e9ace44ec31ce5e%26name%3D%25E5%25AE%259E%25E9%25AA%258C1%2520AI%25E8%25AE%25A4%25E8%25AF%2586%25E5%2588%259D%25E6%25AD%25A5%25E5%2592%258CDeepSeek%25E5%25A4%25A7%25E6%25A8%25A1%25E5%259E%258B%25E9%2583%25A8%25E7%25BD%25B2%25E5%25BA%2594%25E7%2594%25A8%25E5%25AE%259E%25E9%25AA%258C%25E6%258A%25A5%25E5%2591%258A.pdf&amp;fileType=document&amp;imgURL=undefined&amp;attachmentUrl=&amp;fileName=%E5%AE%9E%E9%AA%8C1%20AI%E8%AE%A4%E8%AF%86%E5%88%9D%E6%AD%A5%E5%92%8CDeepSeek%E5%A4%A7%E6%A8%A1%E5%9E%8B%E9%83%A8%E7%BD%B2%E5%BA%94%E7%94%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A.pdf#page=14" data-l10n-id="pdfjs-thumb-page-title" data-l10n-args="{&quot;page&quot;:14}" title="第 ⁨14⁩ 页"><div class="thumbnail" data-page-number="14" style="--thumbnail-width: 98px; --thumbnail-height: 138px;"><div class="thumbnailImage"></div></div></a><a href="https://courses.zju.edu.cn/pdf/editor?uploadId=19632680&amp;file=https%3A%2F%2Ftcmedia.zju.edu.cn%2Fdownload%2Ffile%2F88510d094caf8d91d529c79c87fa7ac97f243ee2%3Ftimestamp%3D1773280800%26token%3D04cb75c6437ce1567e9ace44ec31ce5e%26name%3D%25E5%25AE%259E%25E9%25AA%258C1%2520AI%25E8%25AE%25A4%25E8%25AF%2586%25E5%2588%259D%25E6%25AD%25A5%25E5%2592%258CDeepSeek%25E5%25A4%25A7%25E6%25A8%25A1%25E5%259E%258B%25E9%2583%25A8%25E7%25BD%25B2%25E5%25BA%2594%25E7%2594%25A8%25E5%25AE%259E%25E9%25AA%258C%25E6%258A%25A5%25E5%2591%258A.pdf&amp;fileType=document&amp;imgURL=undefined&amp;attachmentUrl=&amp;fileName=%E5%AE%9E%E9%AA%8C1%20AI%E8%AE%A4%E8%AF%86%E5%88%9D%E6%AD%A5%E5%92%8CDeepSeek%E5%A4%A7%E6%A8%A1%E5%9E%8B%E9%83%A8%E7%BD%B2%E5%BA%94%E7%94%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A.pdf#page=15" data-l10n-id="pdfjs-thumb-page-title" data-l10n-args="{&quot;page&quot;:15}" title="第 ⁨15⁩ 页"><div class="thumbnail" data-page-number="15" style="--thumbnail-width: 98px; --thumbnail-height: 138px;"><div class="thumbnailImage"></div></div></a><a href="https://courses.zju.edu.cn/pdf/editor?uploadId=19632680&amp;file=https%3A%2F%2Ftcmedia.zju.edu.cn%2Fdownload%2Ffile%2F88510d094caf8d91d529c79c87fa7ac97f243ee2%3Ftimestamp%3D1773280800%26token%3D04cb75c6437ce1567e9ace44ec31ce5e%26name%3D%25E5%25AE%259E%25E9%25AA%258C1%2520AI%25E8%25AE%25A4%25E8%25AF%2586%25E5%2588%259D%25E6%25AD%25A5%25E5%2592%258CDeepSeek%25E5%25A4%25A7%25E6%25A8%25A1%25E5%259E%258B%25E9%2583%25A8%25E7%25BD%25B2%25E5%25BA%2594%25E7%2594%25A8%25E5%25AE%259E%25E9%25AA%258C%25E6%258A%25A5%25E5%2591%258A.pdf&amp;fileType=document&amp;imgURL=undefined&amp;attachmentUrl=&amp;fileName=%E5%AE%9E%E9%AA%8C1%20AI%E8%AE%A4%E8%AF%86%E5%88%9D%E6%AD%A5%E5%92%8CDeepSeek%E5%A4%A7%E6%A8%A1%E5%9E%8B%E9%83%A8%E7%BD%B2%E5%BA%94%E7%94%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A.pdf#page=16" data-l10n-id="pdfjs-thumb-page-title" data-l10n-args="{&quot;page&quot;:16}" title="第 ⁨16⁩ 页"><div class="thumbnail" data-page-number="16" style="--thumbnail-width: 98px; --thumbnail-height: 138px;"><div class="thumbnailImage"></div></div></a></div>
+          <div id="outlineView" class="hidden"></div>
+          <div id="attachmentsView" class="hidden"></div>
+          <div id="layersView" class="hidden"></div>
+        </div>
+        <div id="sidebarResizer"></div>
+      </div>  <!-- sidebarContainer -->
+
+      <div id="mainContainer">
+        <div class="findbar hidden doorHanger" id="findbar">
+          <div id="findbarInputContainer">
+            <span class="loadingInput end">
+              <input id="findInput" class="toolbarField" title="查找" placeholder="在文档中查找…" tabindex="91" data-l10n-id="pdfjs-find-input" aria-invalid="false">
+            </span>
+            <div class="splitToolbarButton">
+              <button id="findPrevious" class="toolbarButton" type="button" title="查找词语上一次出现的位置" tabindex="92" data-l10n-id="pdfjs-find-previous-button">
+                <span data-l10n-id="pdfjs-find-previous-button-label">上一页</span>
+              </button>
+              <div class="splitToolbarButtonSeparator"></div>
+              <button id="findNext" class="toolbarButton" type="button" title="查找词语后一次出现的位置" tabindex="93" data-l10n-id="pdfjs-find-next-button">
+                <span data-l10n-id="pdfjs-find-next-button-label">下一页</span>
+              </button>
+            </div>
+          </div>
+
+          <div id="findbarOptionsOneContainer">
+            <input type="checkbox" id="findHighlightAll" class="toolbarField" tabindex="94">
+            <label for="findHighlightAll" class="toolbarLabel" data-l10n-id="pdfjs-find-highlight-checkbox">全部高亮显示</label>
+            <input type="checkbox" id="findMatchCase" class="toolbarField" tabindex="95">
+            <label for="findMatchCase" class="toolbarLabel" data-l10n-id="pdfjs-find-match-case-checkbox-label">区分大小写</label>
+          </div>
+          <div id="findbarOptionsTwoContainer">
+            <input type="checkbox" id="findMatchDiacritics" class="toolbarField" tabindex="96">
+            <label for="findMatchDiacritics" class="toolbarLabel" data-l10n-id="pdfjs-find-match-diacritics-checkbox-label">匹配变音符号</label>
+            <input type="checkbox" id="findEntireWord" class="toolbarField" tabindex="97">
+            <label for="findEntireWord" class="toolbarLabel" data-l10n-id="pdfjs-find-entire-word-checkbox-label">全词匹配</label>
+          </div>
+
+          <div id="findbarMessageContainer" aria-live="polite">
+            <span id="findResultsCount" class="toolbarLabel"></span>
+            <span id="findMsg" class="toolbarLabel"></span>
+          </div>
+        </div>  <!-- findbar -->
+
+        <div class="editorParamsToolbar hidden doorHangerRight" id="editorHighlightParamsToolbar">
+          <div id="highlightParamsToolbarContainer" class="editorParamsToolbarContainer">
+            <div id="editorHighlightColorPicker" class="colorPicker">
+              <span id="highlightColorPickerLabel" class="editorParamsLabel" data-l10n-id="pdfjs-editor-highlight-colorpicker-label">高亮色</span>
+            <div class="dropdown" role="listbox" aria-multiselectable="false" aria-orientation="horizontal" data-l10n-id="pdfjs-editor-colorpicker-dropdown" aria-labelledby="highlightColorPickerLabel" aria-label="颜色选择"><button tabindex="0" role="option" data-color="#FFFF98" title="黄色" data-l10n-id="pdfjs-editor-colorpicker-yellow" aria-selected="true"><span class="swatch" style="background-color: rgb(255, 255, 152);"></span></button><button tabindex="0" role="option" data-color="#53FFBC" title="绿色" data-l10n-id="pdfjs-editor-colorpicker-green" aria-selected="false"><span class="swatch" style="background-color: rgb(83, 255, 188);"></span></button><button tabindex="0" role="option" data-color="#80EBFF" title="蓝色" data-l10n-id="pdfjs-editor-colorpicker-blue" aria-selected="false"><span class="swatch" style="background-color: rgb(128, 235, 255);"></span></button><button tabindex="0" role="option" data-color="#FFCBE6" title="粉色" data-l10n-id="pdfjs-editor-colorpicker-pink" aria-selected="false"><span class="swatch" style="background-color: rgb(255, 203, 230);"></span></button><button tabindex="0" role="option" data-color="#FF4F5F" title="红色" data-l10n-id="pdfjs-editor-colorpicker-red" aria-selected="false"><span class="swatch" style="background-color: rgb(255, 79, 95);"></span></button></div></div>
+            <div id="editorHighlightThickness">
+              <label for="editorFreeHighlightThickness" class="editorParamsLabel" data-l10n-id="pdfjs-editor-free-highlight-thickness-input">粗细</label>
+              <div class="thicknessPicker">
+                <input type="range" id="editorFreeHighlightThickness" class="editorParamsSlider" data-l10n-id="pdfjs-editor-free-highlight-thickness-title" value="12" min="8" max="24" step="1" tabindex="101" title="更改高亮粗细（用于文本以外项目）">
+              </div>
+            </div>
+            <div id="editorHighlightVisibility">
+              <div class="divider"></div>
+              <div class="toggler">
+                <label for="editorHighlightShowAll" class="editorParamsLabel" data-l10n-id="pdfjs-editor-highlight-show-all-button-label">显示全部</label>
+                <button id="editorHighlightShowAll" class="toggle-button" type="button" data-l10n-id="pdfjs-editor-highlight-show-all-button" aria-pressed="true" tabindex="102" title="显示全部"></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="editorParamsToolbar hidden doorHangerRight" id="editorFreeTextParamsToolbar">
+          <div class="editorParamsToolbarContainer">
+            <div class="editorParamsSetter">
+              <label for="editorFreeTextColor" class="editorParamsLabel" data-l10n-id="pdfjs-editor-free-text-color-input">颜色</label>
+              <input type="color" id="editorFreeTextColor" class="editorParamsColor" tabindex="103">
+            </div>
+            <div class="editorParamsSetter">
+              <label for="editorFreeTextFontSize" class="editorParamsLabel" data-l10n-id="pdfjs-editor-free-text-size-input">字号</label>
+              <input type="range" id="editorFreeTextFontSize" class="editorParamsSlider" value="10" min="5" max="100" step="1" tabindex="104">
+            </div>
+          </div>
+        </div>
+
+        <div class="editorParamsToolbar hidden doorHangerRight" id="editorInkParamsToolbar">
+          <div class="editorParamsToolbarContainer">
+            <div class="editorParamsSetter">
+              <label for="editorInkColor" class="editorParamsLabel" data-l10n-id="pdfjs-editor-ink-color-input">颜色</label>
+              <input type="color" id="editorInkColor" class="editorParamsColor" tabindex="105">
+            </div>
+            <div class="editorParamsSetter">
+              <label for="editorInkThickness" class="editorParamsLabel" data-l10n-id="pdfjs-editor-ink-thickness-input">粗细</label>
+              <input type="range" id="editorInkThickness" class="editorParamsSlider" value="1" min="1" max="20" step="1" tabindex="106">
+            </div>
+            <div class="editorParamsSetter">
+              <label for="editorInkOpacity" class="editorParamsLabel" data-l10n-id="pdfjs-editor-ink-opacity-input">不透明度</label>
+              <input type="range" id="editorInkOpacity" class="editorParamsSlider" value="100" min="1" max="100" step="1" tabindex="107">
+            </div>
+          </div>
+        </div>
+
+        <div class="editorParamsToolbar hidden doorHangerRight" id="editorStampParamsToolbar">
+          <div class="editorParamsToolbarContainer">
+            <button id="editorStampAddImage" class="toolbarButton labeled" type="button" title="添加图像" tabindex="108" data-l10n-id="pdfjs-editor-stamp-add-image-button">
+              <span class="editorParamsLabel" data-l10n-id="pdfjs-editor-stamp-add-image-button-label">添加图像</span>
+            </button>
+          </div>
+        </div>
+
+        <div id="secondaryToolbar" class="secondaryToolbar hidden doorHangerRight">
+          <div id="secondaryToolbarButtonContainer">
+            <button id="secondaryOpenFile" class="toolbarButton labeled" type="button" title="打开文件" tabindex="51" data-l10n-id="pdfjs-open-file-button">
+              <span data-l10n-id="pdfjs-open-file-button-label">打开</span>
+            </button>
+
+            <button id="secondaryPrint" class="toolbarButton labeled visibleMediumView" type="button" title="打印" tabindex="52" data-l10n-id="pdfjs-print-button">
+              <span data-l10n-id="pdfjs-print-button-label">打印</span>
+            </button>
+
+            <button id="secondaryDownload" class="toolbarButton labeled visibleMediumView" type="button" title="保存" tabindex="53" data-l10n-id="pdfjs-save-button">
+              <span data-l10n-id="pdfjs-save-button-label">保存</span>
+            </button>
+
+            <div class="horizontalToolbarSeparator"></div>
+
+            <button id="presentationMode" class="toolbarButton labeled" type="button" title="切换到演示模式" tabindex="54" data-l10n-id="pdfjs-presentation-mode-button">
+              <span data-l10n-id="pdfjs-presentation-mode-button-label">演示模式</span>
+            </button>
+
+            <a href="https://courses.zju.edu.cn/pdf/editor?uploadId=19632680&amp;file=https%3A%2F%2Ftcmedia.zju.edu.cn%2Fdownload%2Ffile%2F88510d094caf8d91d529c79c87fa7ac97f243ee2%3Ftimestamp%3D1773280800%26token%3D04cb75c6437ce1567e9ace44ec31ce5e%26name%3D%25E5%25AE%259E%25E9%25AA%258C1%2520AI%25E8%25AE%25A4%25E8%25AF%2586%25E5%2588%259D%25E6%25AD%25A5%25E5%2592%258CDeepSeek%25E5%25A4%25A7%25E6%25A8%25A1%25E5%259E%258B%25E9%2583%25A8%25E7%25BD%25B2%25E5%25BA%2594%25E7%2594%25A8%25E5%25AE%259E%25E9%25AA%258C%25E6%258A%25A5%25E5%2591%258A.pdf&amp;fileType=document&amp;imgURL=undefined&amp;attachmentUrl=&amp;fileName=%E5%AE%9E%E9%AA%8C1%20AI%E8%AE%A4%E8%AF%86%E5%88%9D%E6%AD%A5%E5%92%8CDeepSeek%E5%A4%A7%E6%A8%A1%E5%9E%8B%E9%83%A8%E7%BD%B2%E5%BA%94%E7%94%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A.pdf#page=1&amp;zoom=auto,-62,848" id="viewBookmark" class="toolbarButton labeled" title="当前页面（在当前页面查看 URL）" tabindex="55" data-l10n-id="pdfjs-bookmark-button">
+              <span data-l10n-id="pdfjs-bookmark-button-label">当前页面</span>
+            </a>
+
+            <div id="viewBookmarkSeparator" class="horizontalToolbarSeparator"></div>
+
+            <button id="firstPage" class="toolbarButton labeled" type="button" title="转到第一页" tabindex="56" data-l10n-id="pdfjs-first-page-button" disabled="">
+              <span data-l10n-id="pdfjs-first-page-button-label">转到第一页</span>
+            </button>
+            <button id="lastPage" class="toolbarButton labeled" type="button" title="转到最后一页" tabindex="57" data-l10n-id="pdfjs-last-page-button">
+              <span data-l10n-id="pdfjs-last-page-button-label">转到最后一页</span>
+            </button>
+
+            <div class="horizontalToolbarSeparator"></div>
+
+            <button id="pageRotateCw" class="toolbarButton labeled" type="button" title="顺时针旋转" tabindex="58" data-l10n-id="pdfjs-page-rotate-cw-button">
+              <span data-l10n-id="pdfjs-page-rotate-cw-button-label">顺时针旋转</span>
+            </button>
+            <button id="pageRotateCcw" class="toolbarButton labeled" type="button" title="逆时针旋转" tabindex="59" data-l10n-id="pdfjs-page-rotate-ccw-button">
+              <span data-l10n-id="pdfjs-page-rotate-ccw-button-label">逆时针旋转</span>
+            </button>
+
+            <div class="horizontalToolbarSeparator"></div>
+
+            <div id="cursorToolButtons" role="radiogroup">
+              <button id="cursorSelectTool" class="toolbarButton labeled toggled" type="button" title="启用文本选择工具" tabindex="60" data-l10n-id="pdfjs-cursor-text-select-tool-button" role="radio" aria-checked="true">
+                <span data-l10n-id="pdfjs-cursor-text-select-tool-button-label">文本选择工具</span>
+              </button>
+              <button id="cursorHandTool" class="toolbarButton labeled" type="button" title="启用手形工具" tabindex="61" data-l10n-id="pdfjs-cursor-hand-tool-button" role="radio" aria-checked="false">
+                <span data-l10n-id="pdfjs-cursor-hand-tool-button-label">手形工具</span>
+              </button>
+            </div>
+
+            <div class="horizontalToolbarSeparator"></div>
+
+            <div id="scrollModeButtons" role="radiogroup">
+              <button id="scrollPage" class="toolbarButton labeled" type="button" title="使用页面滚动" tabindex="62" data-l10n-id="pdfjs-scroll-page-button" role="radio" aria-checked="false">
+                <span data-l10n-id="pdfjs-scroll-page-button-label">页面滚动</span>
+              </button>
+              <button id="scrollVertical" class="toolbarButton labeled toggled" type="button" title="使用垂直滚动" tabindex="63" data-l10n-id="pdfjs-scroll-vertical-button" role="radio" aria-checked="true">
+                <span data-l10n-id="pdfjs-scroll-vertical-button-label">垂直滚动</span>
+              </button>
+              <button id="scrollHorizontal" class="toolbarButton labeled" type="button" title="使用水平滚动" tabindex="64" data-l10n-id="pdfjs-scroll-horizontal-button" role="radio" aria-checked="false">
+                <span data-l10n-id="pdfjs-scroll-horizontal-button-label">水平滚动</span>
+              </button>
+              <button id="scrollWrapped" class="toolbarButton labeled" type="button" title="使用平铺滚动" tabindex="65" data-l10n-id="pdfjs-scroll-wrapped-button" role="radio" aria-checked="false">
+                <span data-l10n-id="pdfjs-scroll-wrapped-button-label">平铺滚动</span>
+              </button>
+            </div>
+
+            <div class="horizontalToolbarSeparator"></div>
+
+            <div id="spreadModeButtons" role="radiogroup">
+              <button id="spreadNone" class="toolbarButton labeled toggled" type="button" title="不加入衔接页" tabindex="66" data-l10n-id="pdfjs-spread-none-button" role="radio" aria-checked="true">
+                <span data-l10n-id="pdfjs-spread-none-button-label">单页视图</span>
+              </button>
+              <button id="spreadOdd" class="toolbarButton labeled" type="button" title="加入衔接页使奇数页作为起始页" tabindex="67" data-l10n-id="pdfjs-spread-odd-button" role="radio" aria-checked="false">
+                <span data-l10n-id="pdfjs-spread-odd-button-label">双页视图</span>
+              </button>
+              <button id="spreadEven" class="toolbarButton labeled" type="button" title="加入衔接页使偶数页作为起始页" tabindex="68" data-l10n-id="pdfjs-spread-even-button" role="radio" aria-checked="false">
+                <span data-l10n-id="pdfjs-spread-even-button-label">书籍视图</span>
+              </button>
+            </div>
+
+            <div id="imageAltTextSettingsSeparator" class="horizontalToolbarSeparator hidden"></div>
+            <button id="imageAltTextSettings" type="button" class="toolbarButton labeled hidden" title="Image alt text settings" tabindex="69" data-l10n-id="pdfjs-image-alt-text-settings-button" aria-controls="altTextSettingsDialog">
+              <span data-l10n-id="pdfjs-image-alt-text-settings-button-label">Image alt text settings</span>
+            </button>
+
+            <div class="horizontalToolbarSeparator"></div>
+
+            <button id="documentProperties" class="toolbarButton labeled" type="button" title="文档属性…" tabindex="70" data-l10n-id="pdfjs-document-properties-button" aria-controls="documentPropertiesDialog">
+              <span data-l10n-id="pdfjs-document-properties-button-label">文档属性…</span>
+            </button>
+          </div>
+        </div>  <!-- secondaryToolbar -->
+
+        <div class="toolbar">
+          <div id="toolbarContainer">
+            <div id="toolbarViewer">
+              <div id="toolbarViewerLeft">
+                <button id="sidebarToggle" class="toolbarButton" type="button" title="切换侧栏" tabindex="11" data-l10n-id="pdfjs-toggle-sidebar-button" aria-expanded="false" aria-controls="sidebarContainer">
+                  <span data-l10n-id="pdfjs-toggle-sidebar-button-label">切换侧栏</span>
+                </button>
+                <div class="toolbarButtonSpacer"></div>
+                <button id="viewFind" class="toolbarButton" type="button" title="在文档中查找" tabindex="12" data-l10n-id="pdfjs-findbar-button" aria-expanded="false" aria-controls="findbar">
+                  <span data-l10n-id="pdfjs-findbar-button-label">查找</span>
+                </button>
+                <div class="splitToolbarButton hiddenSmallView">
+                  <button class="toolbarButton" title="上一页" id="previous" type="button" tabindex="13" data-l10n-id="pdfjs-previous-button" disabled="">
+                    <span data-l10n-id="pdfjs-previous-button-label">上一页</span>
+                  </button>
+                  <div class="splitToolbarButtonSeparator"></div>
+                  <button class="toolbarButton" title="下一页" id="next" type="button" tabindex="14" data-l10n-id="pdfjs-next-button">
+                    <span data-l10n-id="pdfjs-next-button-label">下一页</span>
+                  </button>
+                </div>
+                <span class="loadingInput start">
+                  <input type="number" id="pageNumber" class="toolbarField" title="页面" value="1" min="1" tabindex="15" data-l10n-id="pdfjs-page-input" autocomplete="off" max="16">
+                </span>
+                <span id="numPages" class="toolbarLabel" data-l10n-id="pdfjs-of-pages" data-l10n-args="{&quot;pagesCount&quot;:16}">/ ⁨16⁩</span>
+              </div>
+              <div id="toolbarViewerRight" lang="zh-CN"><div data-v-adee5098="" class="tools"><div data-v-adee5098="" class="common-area area"><div data-v-dcfa089e="" data-v-adee5098="" style="line-height: 0;"><div data-v-dcfa089e="" class="tool download"><i data-v-dcfa089e="" class="font font-pdf-editor-download-btn"></i></div></div> <div data-v-47500493="" data-v-adee5098="" class="tool fullscreen has-tooltip" data-original-title="null"><i data-v-47500493="" class="font font-pdf-editor-fullscreen"></i></div> <!----></div> <div data-v-adee5098="" class="undo-area area"><div data-v-758c5a60="" data-v-adee5098="" class="tool undo has-tooltip" data-original-title="null"><i data-v-758c5a60="" class="font font-pdf-editor-undo"></i></div> <div data-v-14fae914="" data-v-adee5098="" class="tool redo has-tooltip" data-original-title="null"><i data-v-14fae914="" class="font font-pdf-editor-redo"></i></div></div> <div data-v-adee5098="" class="note-area area"><div data-v-6623d0f0="" data-v-adee5098="" class="tool correct has-tooltip" data-original-title="null"><div data-v-6623d0f0="" class="svg-container"><svg data-v-6623d0f0="" class="svg-icon"><use data-v-6623d0f0="" xlink:href="#correct"></use></svg></div></div> <div data-v-adee5098="" class="tool error has-tooltip" data-original-title="null"><div class="svg-container"><svg class="svg-icon"><use xlink:href="#error"></use></svg></div></div> <div data-v-5cb1ccd7="" data-v-adee5098="" class="tool comment has-tooltip" data-original-title="null"><div data-v-5cb1ccd7="" class="svg-container"><svg data-v-5cb1ccd7="" class="svg-icon"><use data-v-5cb1ccd7="" xlink:href="#comment"></use></svg></div></div></div> <div data-v-adee5098="" class="brush-area area"><div data-v-1cc8ab5f="" data-v-adee5098="" class="popover-container tool brush"><i data-v-1cc8ab5f="" class="font font-pdf-editor-brush has-tooltip" data-original-title="null"></i> <!----></div> <div data-v-70d95496="" data-v-adee5098="" class="tool eraser has-tooltip" data-original-title="null"><i data-v-70d95496="" class="font font-pdf-editor-eraser"></i></div> <div data-v-0f2c983a="" data-v-adee5098="" class="tool clear has-tooltip" data-original-title="null"><i data-v-0f2c983a="" class="font font-pdf-editor-clear"></i> <div data-v-d45d15a6="" data-v-0f2c983a="" class="popup-close" style="display: none;"><div data-v-d45d15a6="" class="content"><div data-v-d45d15a6="" class="popup-header"><span data-v-d45d15a6="">确定要清屏吗？</span> <svg data-v-d45d15a6="" class="svg-icon"><use data-v-d45d15a6="" xlink:href="#close-popup"></use></svg></div> <div data-v-d45d15a6="" class="main-area"><span data-v-d45d15a6="">当前页面的所有批注都会被清空</span></div> <div data-v-d45d15a6="" class="popup-footer"><div data-v-d45d15a6="" class="form-buttons"><button data-v-d45d15a6="" type="button" class="button button-green medium">确认</button> <button data-v-d45d15a6="" type="button" class="button button-grey medium">取消</button></div></div></div></div></div></div></div> <div id="editorModeButtons" role="radiogroup" class="splitToolbarButton toggled"><button id="editorHighlight" type="button" disabled="disabled" title="高亮" role="radio" aria-checked="false" aria-controls="editorHighlightParamsToolbar" tabindex="31" data-l10n-id="pdfjs-editor-highlight-button" class="toolbarButton"><span data-l10n-id="pdfjs-editor-highlight-button-label">高亮</span></button> <button id="editorFreeText" type="button" disabled="disabled" title="文本" role="radio" aria-checked="false" aria-controls="editorFreeTextParamsToolbar" tabindex="32" data-l10n-id="pdfjs-editor-free-text-button" class="toolbarButton"><span data-l10n-id="pdfjs-editor-free-text-button-label">文本</span></button> <button id="editorInk" type="button" disabled="disabled" title="绘图" role="radio" aria-checked="false" aria-controls="editorInkParamsToolbar" tabindex="33" data-l10n-id="pdfjs-editor-ink-button" class="toolbarButton"><span data-l10n-id="pdfjs-editor-ink-button-label">绘图</span></button> <button id="editorStamp" type="button" disabled="disabled" title="添加或编辑图像" role="radio" aria-checked="false" aria-controls="editorStampParamsToolbar" tabindex="34" data-l10n-id="pdfjs-editor-stamp-button" class="toolbarButton"><span data-l10n-id="pdfjs-editor-stamp-button-label">添加或编辑图像</span></button></div> <div id="editorModeSeparator" class="verticalToolbarSeparator"></div> <button id="print" type="button" title="打印" tabindex="41" data-l10n-id="pdfjs-print-button" class="toolbarButton hiddenMediumView"><span data-l10n-id="pdfjs-print-button-label">打印</span></button> <button id="download" type="button" title="保存" tabindex="42" data-l10n-id="pdfjs-save-button" class="toolbarButton hiddenMediumView"><span data-l10n-id="pdfjs-save-button-label">保存</span></button> <div class="verticalToolbarSeparator hiddenMediumView"></div> <button id="secondaryToolbarToggle" type="button" title="工具" tabindex="43" data-l10n-id="pdfjs-tools-button" aria-expanded="false" aria-controls="secondaryToolbar" class="toolbarButton"><span data-l10n-id="pdfjs-tools-button-label">工具</span></button></div>
+              <div id="toolbarViewerMiddle">
+                <div class="splitToolbarButton">
+                  <button id="zoomOut" class="toolbarButton" type="button" title="缩小" tabindex="21" data-l10n-id="pdfjs-zoom-out-button">
+                    <span data-l10n-id="pdfjs-zoom-out-button-label">缩小</span>
+                  </button>
+                  <div class="splitToolbarButtonSeparator"></div>
+                  <button id="zoomIn" class="toolbarButton" type="button" title="放大" tabindex="22" data-l10n-id="pdfjs-zoom-in-button">
+                    <span data-l10n-id="pdfjs-zoom-in-button-label">放大</span>
+                   </button>
+                </div>
+                <span id="scaleSelectContainer" class="dropdownToolbarButton">
+                  <select id="scaleSelect" title="缩放" tabindex="23" data-l10n-id="pdfjs-zoom-select">
+                    <option id="pageAutoOption" value="auto" selected="selected" data-l10n-id="pdfjs-page-scale-auto">自动缩放</option>
+                    <option id="pageActualOption" value="page-actual" data-l10n-id="pdfjs-page-scale-actual">实际大小</option>
+                    <option id="pageFitOption" value="page-fit" data-l10n-id="pdfjs-page-scale-fit">适合页面</option>
+                    <option id="pageWidthOption" value="page-width" data-l10n-id="pdfjs-page-scale-width">适合页宽</option>
+                    <option id="customScaleOption" value="custom" disabled="disabled" hidden="true" data-l10n-id="pdfjs-page-scale-percent" data-l10n-args="{ &quot;scale&quot;: 0 }">⁨0⁩%</option>
+                    <option value="0.5" data-l10n-id="pdfjs-page-scale-percent" data-l10n-args="{ &quot;scale&quot;: 50 }">⁨50⁩%</option>
+                    <option value="0.75" data-l10n-id="pdfjs-page-scale-percent" data-l10n-args="{ &quot;scale&quot;: 75 }">⁨75⁩%</option>
+                    <option value="1" data-l10n-id="pdfjs-page-scale-percent" data-l10n-args="{ &quot;scale&quot;: 100 }">⁨100⁩%</option>
+                    <option value="1.25" data-l10n-id="pdfjs-page-scale-percent" data-l10n-args="{ &quot;scale&quot;: 125 }">⁨125⁩%</option>
+                    <option value="1.5" data-l10n-id="pdfjs-page-scale-percent" data-l10n-args="{ &quot;scale&quot;: 150 }">⁨150⁩%</option>
+                    <option value="2" data-l10n-id="pdfjs-page-scale-percent" data-l10n-args="{ &quot;scale&quot;: 200 }">⁨200⁩%</option>
+                    <option value="3" data-l10n-id="pdfjs-page-scale-percent" data-l10n-args="{ &quot;scale&quot;: 300 }">⁨300⁩%</option>
+                    <option value="4" data-l10n-id="pdfjs-page-scale-percent" data-l10n-args="{ &quot;scale&quot;: 400 }">⁨400⁩%</option>
+                  </select>
+                </span>
+              </div>
+            </div>
+            <div id="loadingBar" style="--progressBar-percent: 100%; --progressBar-end-offset: 15px;" class="hidden">
+              <div class="progress">
+                <div class="glimmer">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="viewerContainer" tabindex="0">
+          <div id="hiddenCopyElement"></div><div id="viewer" class="pdfViewer" style="--scale-factor: 1.6666666666666665;"><div class="page" data-page-number="1" role="region" data-l10n-id="pdfjs-page-landmark" data-l10n-args="{&quot;page&quot;:1}" style="width: round(var(--scale-factor) * 595.2px, 1px); height: round(var(--scale-factor) * 841.8px, 1px);" aria-label="第 ⁨1⁩ 页" data-loaded="true"><div class="canvasWrapper"><canvas role="presentation" width="1240" height="1750" style="width: 992px; height: 1400px;"></canvas></div><div tabindex="0" class="textLayer" data-main-rotation="0" style="width: round(var(--scale-factor) * 595.2px, 1px); height: round(var(--scale-factor) * 841.8px, 1px);"><span role="presentation" dir="ltr" style="left: 37.58%; top: 6.84%; font-size: calc(var(--scale-factor)*9.12px); font-family: monospace; transform: scaleX(0.9912);">实验一</span><span role="presentation" dir="ltr" style="left: 42.14%; top: 6.84%; font-size: calc(var(--scale-factor)*9.12px); font-family: monospace;"> </span><span role="presentation" dir="ltr" style="left: 42.46%; top: 6.92%; font-size: calc(var(--scale-factor)*9.12px); font-family: sans-serif; transform: scaleX(1.1606);">AI</span><span role="presentation" dir="ltr" style="left: 44.06%; top: 6.92%; font-size: calc(var(--scale-factor)*9.12px); font-family: sans-serif;"> </span><span role="presentation" dir="ltr" style="left: 44.43%; top: 6.84%; font-size: calc(var(--scale-factor)*9.12px); font-family: monospace; transform: scaleX(0.9879);">认识初步和大模型部署应用</span><br role="presentation"><span role="presentation" dir="ltr" style="left: 47.84%; top: 92.95%; font-size: calc(var(--scale-factor)*9.12px); font-family: monospace;">1</span><span role="presentation" dir="ltr" style="left: 48.62%; top: 92.95%; font-size: calc(var(--scale-factor)*9.12px); font-family: monospace;"> </span><span role="presentation" dir="ltr" style="left: 48.95%; top: 93.02%; font-size: calc(var(--scale-factor)*9.12px); font-family: sans-serif;">/</span><span role="presentation" dir="ltr" style="left: 49.54%; top: 93.02%; font-size: calc(var(--scale-factor)*9.12px); font-family: sans-serif;"> </span><span role="presentation" dir="ltr" style="left: 49.88%; top: 92.95%; font-size: calc(var(--scale-factor)*9.12px); font-family: monospace; transform: scaleX(1.0072);">16</span><span role="presentation" dir="ltr" style="left: 51.42%; top: 92.95%; font-size: calc(var(--scale-factor)*9.12px); font-family: monospace;"> </span><span role="presentation" dir="ltr" style="left: 51.75%; top: 93.02%; font-size: calc(var(--scale-factor)*9.12px); font-family: sans-serif; transform: scaleX(0.91648);">2026/3/3</span><br role="presentation"><span role="presentation" dir="ltr" style="left: 25.14%; top: 8.89%; font-size: calc(var(--scale-factor)*16.08px); font-family: monospace; transform: scaleX(0.996);">实验报告一</span><span role="presentation" dir="ltr" style="left: 38.59%; top: 8.89%; font-size: calc(var(--scale-factor)*16.08px); font-family: monospace;"> </span><span role="presentation" dir="ltr" style="left: 39.1%; top: 9.03%; font-size: calc(var(--scale-factor)*16.08px); font-family: sans-serif; transform: scaleX(1.2293);">AI</span><span role="presentation" dir="ltr" style="left: 42.1%; top: 9.03%; font-size: calc(var(--scale-factor)*16.08px); font-family: sans-serif;"> </span><span role="presentation" dir="ltr" style="left: 42.76%; top: 8.89%; font-size: calc(var(--scale-factor)*16.08px); font-family: monospace; transform: scaleX(0.995417);">认识初步和大模型部署应用</span><br role="presentation"><span role="presentation" dir="ltr" style="left: 33.08%; top: 11.83%; font-size: calc(var(--scale-factor)*10.56px); font-family: sans-serif; transform: scaleX(0.99715);">学号</span><span role="presentation" dir="ltr" style="left: 36.61%; top: 11.83%; font-size: calc(var(--scale-factor)*10.56px); font-family: sans-serif; transform: scaleX(0.925623);">:____________</span><span role="presentation" dir="ltr" style="left: 48.08%; top: 11.83%; font-size: calc(var(--scale-factor)*10.56px); font-family: sans-serif;"> </span><span role="presentation" dir="ltr" style="left: 49.31%; top: 11.83%; font-size: calc(var(--scale-factor)*10.56px); font-family: sans-serif; transform: scaleX(0.99715);">姓名</span><span role="presentation" dir="ltr" style="left: 52.84%; top: 11.83%; font-size: calc(var(--scale-factor)*10.56px); font-family: sans-serif; transform: scaleX(0.91862);">:_______________</span><br role="presentation"><span role="presentation" dir="ltr" style="left: 15.08%; top: 14.94%; font-size: calc(var(--scale-factor)*10.56px); font-family: sans-serif; transform: scaleX(1.04097);">报告整洁、美观度将占比【</span><span role="presentation" dir="ltr" style="left: 37.23%; top: 14.94%; font-size: calc(var(--scale-factor)*10.56px); font-family: sans-serif; transform: scaleX(0.898379);">10</span><span role="presentation" dir="ltr" style="left: 38.99%; top: 14.94%; font-size: calc(var(--scale-factor)*10.56px); font-family: sans-serif;">】</span><span role="presentation" dir="ltr" style="left: 40.85%; top: 14.42%; font-size: calc(var(--scale-factor)*16.08px); font-family: sans-serif; transform: scaleX(1.01675);">一、</span><span role="presentation" dir="ltr" style="left: 46.34%; top: 14.42%; font-size: calc(var(--scale-factor)*16.08px); font-family: sans-serif;"> </span><span role="presentation" dir="ltr" style="left: 47.51%; top: 14.42%; font-size: calc(var(--scale-factor)*16.08px); font-family: sans-serif; transform: scaleX(1.02871);">实验感受与记录</span><br role="presentation"><span role="presentation" dir="ltr" style="left: 15.08%; top: 18.15%; font-size: calc(var(--scale-factor)*16.08px); font-family: sans-serif;">【</span><span role="presentation" dir="ltr" style="left: 17.76%; top: 18.15%; font-size: calc(var(--scale-factor)*16.08px); font-family: sans-serif; transform: scaleX(0.898649);">90</span><span role="presentation" dir="ltr" style="left: 20.45%; top: 18.15%; font-size: calc(var(--scale-factor)*16.08px); font-family: sans-serif;">】</span><br role="presentation"><span role="presentation" dir="ltr" style="left: 15.2%; top: 24%; font-size: calc(var(--scale-factor)*16.08px); font-family: sans-serif; transform: scaleX(0.897359);">1.</span><span role="presentation" dir="ltr" style="left: 17.22%; top: 24%; font-size: calc(var(--scale-factor)*16.08px); font-family: sans-serif;"> </span><span role="presentation" dir="ltr" style="left: 18.73%; top: 23.86%; font-size: calc(var(--scale-factor)*16.08px); font-family: monospace; transform: scaleX(0.995263);">实验感受（总结实验过程中的收获或疑问）</span><span role="presentation" dir="ltr" style="left: 68.46%; top: 23.86%; font-size: calc(var(--scale-factor)*16.08px); font-family: monospace;">【</span><span role="presentation" dir="ltr" style="left: 71.15%; top: 24%; font-size: calc(var(--scale-factor)*16.08px); font-family: sans-serif;">5</span><span role="presentation" dir="ltr" style="left: 72.49%; top: 23.86%; font-size: calc(var(--scale-factor)*16.08px); font-family: monospace;">】</span><span role="presentation" dir="ltr" style="left: 75.18%; top: 24.38%; font-size: calc(var(--scale-factor)*12.00px); font-family: sans-serif; transform: scaleX(1);">不少于</span><br role="presentation"><span role="presentation" dir="ltr" style="left: 18.73%; top: 29.71%; font-size: calc(var(--scale-factor)*12.00px); font-family: sans-serif; transform: scaleX(0.900901);">100</span><span role="presentation" dir="ltr" style="left: 21.75%; top: 29.71%; font-size: calc(var(--scale-factor)*12.00px); font-family: sans-serif;"> </span><span role="presentation" dir="ltr" style="left: 22.26%; top: 29.71%; font-size: calc(var(--scale-factor)*12.00px); font-family: sans-serif; transform: scaleX(1);">字。</span><br role="presentation"><span role="presentation" dir="ltr" style="left: 15.2%; top: 35.46%; font-size: calc(var(--scale-factor)*16.08px); font-family: sans-serif; transform: scaleX(0.897359);">2.</span><span role="presentation" dir="ltr" style="left: 17.22%; top: 35.46%; font-size: calc(var(--scale-factor)*16.08px); font-family: sans-serif;"> </span><span role="presentation" dir="ltr" style="left: 18.73%; top: 35.46%; font-size: calc(var(--scale-factor)*16.08px); font-family: sans-serif; transform: scaleX(0.877344);">Deepseek</span><span role="presentation" dir="ltr" style="left: 29.49%; top: 35.46%; font-size: calc(var(--scale-factor)*16.08px); font-family: sans-serif;"> </span><span role="presentation" dir="ltr" style="left: 30.15%; top: 35.32%; font-size: calc(var(--scale-factor)*16.08px); font-family: monospace; transform: scaleX(0.995625);">的本地化安装部署</span><br role="presentation"><span role="presentation" dir="ltr" style="left: 15.08%; top: 40.79%; font-size: calc(var(--scale-factor)*13.92px); font-family: sans-serif; transform: scaleX(0.904382);">2.1.</span><span role="presentation" dir="ltr" style="left: 18.6%; top: 40.79%; font-size: calc(var(--scale-factor)*13.92px); font-family: sans-serif;"> </span><span role="presentation" dir="ltr" style="left: 22.62%; top: 40.79%; font-size: calc(var(--scale-factor)*13.92px); font-family: sans-serif; transform: scaleX(0.94661);">Ollama</span><span role="presentation" dir="ltr" style="left: 30.06%; top: 40.79%; font-size: calc(var(--scale-factor)*13.92px); font-family: sans-serif;"> </span><span role="presentation" dir="ltr" style="left: 30.65%; top: 40.79%; font-size: calc(var(--scale-factor)*13.92px); font-family: sans-serif; transform: scaleX(1.00518);">版本信息（命令行）截图</span><span role="presentation" dir="ltr" style="left: 56.51%; top: 40.79%; font-size: calc(var(--scale-factor)*13.92px); font-family: sans-serif;"> </span><span role="presentation" dir="ltr" style="left: 57.11%; top: 40.79%; font-size: calc(var(--scale-factor)*13.92px); font-family: sans-serif;">【</span><span role="presentation" dir="ltr" style="left: 59.47%; top: 40.79%; font-size: calc(var(--scale-factor)*13.92px); font-family: sans-serif;">5</span><span role="presentation" dir="ltr" style="left: 60.64%; top: 40.79%; font-size: calc(var(--scale-factor)*13.92px); font-family: sans-serif;">】</span><br role="presentation"><span role="presentation" dir="ltr" style="left: 46.61%; top: 80.11%; font-size: calc(var(--scale-factor)*10.56px); font-family: sans-serif; transform: scaleX(0.995725);">【截图】</span><div class="endOfContent"></div></div><div class="annotationLayer" hidden=""></div><div class="annotationEditorLayer disabled" hidden="" dir="ltr" tabindex="0" data-main-rotation="0" style="width: round(var(--scale-factor) * 595.2px, 1px); height: round(var(--scale-factor) * 841.8px, 1px);"></div></div><div class="page" data-page-number="2" role="region" data-l10n-id="pdfjs-page-landmark" data-l10n-args="{&quot;page&quot;:2}" style="width: round(var(--scale-factor) * 595.2px, 1px); height: round(var(--scale-factor) * 841.8px, 1px);" aria-label="第 ⁨2⁩ 页" data-loaded="true"><div class="canvasWrapper"><canvas role="presentation" width="1240" height="1750" style="width: 992px; height: 1400px;"></canvas></div><div tabindex="0" class="textLayer" data-main-rotation="0" style="width: round(var(--scale-factor) * 595.2px, 1px); height: round(var(--scale-factor) * 841.8px, 1px);"><span role="presentation" dir="ltr" style="left: 37.58%; top: 6.84%; font-size: calc(var(--scale-factor)*9.12px); font-family: monospace; transform: scaleX(0.9912);">实验一</span><span role="presentation" dir="ltr" style="left: 42.14%; top: 6.84%; font-size: calc(var(--scale-factor)*9.12px); font-family: monospace;"> </span><span role="presentation" dir="ltr" style="left: 42.46%; top: 6.92%; font-size: calc(var(--scale-factor)*9.12px); font-family: sans-serif; transform: scaleX(1.1606);">AI</span><span role="presentation" dir="ltr" style="left: 44.06%; top: 6.92%; font-size: calc(var(--scale-factor)*9.12px); font-family: sans-serif;"> </span><span role="presentation" dir="ltr" style="left: 44.43%; top: 6.84%; font-size: calc(var(--scale-factor)*9.12px); font-family: monospace; transform: scaleX(0.9879);">认识初步和大模型部署应用</span><br role="presentation"><span role="presentation" dir="ltr" style="left: 47.84%; top: 92.95%; font-size: calc(var(--scale-factor)*9.12px); font-family: monospace;">2</span><span role="presentation" dir="ltr" style="left: 48.62%; top: 92.95%; font-size: calc(var(--scale-factor)*9.12px); font-family: monospace;"> </span><span role="presentation" dir="ltr" style="left: 48.95%; top: 93.02%; font-size: calc(var(--scale-factor)*9.12px); font-family: sans-serif;">/</span><span role="presentation" dir="ltr" style="left: 49.54%; top: 93.02%; font-size: calc(var(--scale-factor)*9.12px); font-family: sans-serif;"> </span><span role="presentation" dir="ltr" style="left: 49.88%; top: 92.95%; font-size: calc(var(--scale-factor)*9.12px); font-family: monospace; transform: scaleX(1.0072);">16</span><span role="presentation" dir="ltr" style="left: 51.42%; top: 92.95%; font-size: calc(var(--scale-factor)*9.12px); font-family: monospace;"> </span><span role="presentation" dir="ltr" style="left: 51.75%; top: 93.02%; font-size: calc(var(--scale-factor)*9.12px); font-family: sans-serif; transform: scaleX(0.91648);">2026/3/3</span><br role="presentation"><span role="presentation" dir="ltr" style="left: 15.08%; top: 8.98%; font-size: calc(var(--scale-factor)*13.92px); font-family: sans-serif; transform: scaleX(0.904382);">2.2.</span><span role="presentation" dir="ltr" style="left: 18.6%; top: 8.98%; font-size: calc(var(--scale-factor)*13.92px); font-family: sans-serif;"> </span><span role="presentation" dir="ltr" style="left: 19.26%; top: 8.98%; font-size: calc(var(--scale-factor)*13.92px); font-family: sans-serif; transform: scaleX(1.00285);">本地</span><span role="presentation" dir="ltr" style="left: 23.95%; top: 8.98%; font-size: calc(var(--scale-factor)*13.92px); font-family: sans-serif;"> </span><span role="presentation" dir="ltr" style="left: 25.14%; top: 8.98%; font-size: calc(var(--scale-factor)*13.92px); font-family: sans-serif; transform: scaleX(0.861365);">deepseek</span><span role="presentation" dir="ltr" style="left: 34.14%; top: 8.98%; font-size: calc(var(--scale-factor)*13.92px); font-family: sans-serif;"> </span><span role="presentation" dir="ltr" style="left: 34.74%; top: 8.98%; font-size: calc(var(--scale-factor)*13.92px); font-family: sans-serif; transform: scaleX(1.00285);">对话</span><span role="presentation" dir="ltr" style="left: 39.43%; top: 8.98%; font-size: calc(var(--scale-factor)*13.92px); font-family: sans-serif;"> </span><span role="presentation" dir="ltr" style="left: 40.03%; top: 8.98%; font-size: calc(var(--scale-factor)*13.92px); font-family: sans-serif;">【</span><span role="presentation" dir="ltr" style="left: 42.39%; top: 8.98%; font-size: calc(var(--scale-factor)*13.92px); font-family: sans-serif; transform: scaleX(0.903514);">10</span><span role="presentation" dir="ltr" style="left: 44.74%; top: 8.98%; font-size: calc(var(--scale-factor)*13.92px); font-family: sans-serif;">】</span><br role="presentation"><span role="presentation" dir="ltr" style="left: 19.11%; top: 13.29%; font-size: calc(var(--scale-factor)*12.00px); font-family: sans-serif; transform: scaleX(1);">若硬件不足，可以考虑其他模型，但需要在报告中阐明。</span><br role="presentation"><span role="presentation" dir="ltr" style="left: 43.04%; top: 51.18%; font-size: calc(var(--scale-factor)*10.56px); font-family: sans-serif; transform: scaleX(0.995012);">【模型拉取截图】</span><div class="endOfContent"></div></div><div class="annotationLayer" hidden=""></div><div class="annotationEditorLayer disabled" hidden="" dir="ltr" tabindex="0" data-main-rotation="0" style="width: round(var(--scale-factor) * 595.2px, 1px); height: round(var(--scale-factor) * 841.8px, 1px);"></div></div><div class="page" data-page-number="3" role="region" data-l10n-id="pdfjs-page-landmark" data-l10n-args="{&quot;page&quot;:3}" style="width: round(var(--scale-factor) * 595.2px, 1px); height: round(var(--scale-factor) * 841.8px, 1px);" aria-label="第 ⁨3⁩ 页"><div class="canvasWrapper" style="position: absolute;"><canvas role="presentation" width="755" height="1065" style="transform: rotate(0deg) scale(1, 1);" zooming="true"></canvas></div><div tabindex="0" class="textLayer" data-main-rotation="0" style="width: round(var(--scale-factor) * 595.2px, 1px); height: round(var(--scale-factor) * 841.8px, 1px);" hidden=""><span role="presentation" dir="ltr" style="left: 37.58%; top: 6.84%; font-size: calc(var(--scale-factor)*9.12px); font-family: monospace; transform: scaleX(0.99186);">实验一</span><span role="presentation" dir="ltr" style="left: 42.14%; top: 6.84%; font-size: calc(var(--scale-factor)*9.12px); font-family: monospace;"> </span><span role="presentation" dir="ltr" style="left: 42.46%; top: 6.92%; font-size: calc(var(--scale-factor)*9.12px); font-family: sans-serif; transform: scaleX(1.16137);">AI</span><span role="presentation" dir="ltr" style="left: 44.06%; top: 6.92%; font-size: calc(var(--scale-factor)*9.12px); font-family: sans-serif;"> </span><span role="presentation" dir="ltr" style="left: 44.43%; top: 6.84%; font-size: calc(var(--scale-factor)*9.12px); font-family: monospace; transform: scaleX(0.988558);">认识初步和大模型部署应用</span><br role="presentation"><span role="presentation" dir="ltr" style="left: 47.84%; top: 92.95%; font-size: calc(var(--scale-factor)*9.12px); font-family: monospace;">3</span><span role="presentation" dir="ltr" style="left: 48.62%; top: 92.95%; font-size: calc(var(--scale-factor)*9.12px); font-family: monospace;"> </span><span role="presentation" dir="ltr" style="left: 48.95%; top: 93.02%; font-size: calc(var(--scale-factor)*9.12px); font-family: sans-serif;">/</span><span role="presentation" dir="ltr" style="left: 49.54%; top: 93.02%; font-size: calc(var(--scale-factor)*9.12px); font-family: sans-serif;"> </span><span role="presentation" dir="ltr" style="left: 49.88%; top: 92.95%; font-size: calc(var(--scale-factor)*9.12px); font-family: monospace; transform: scaleX(1.00787);">16</span><span role="presentation" dir="ltr" style="left: 51.42%; top: 92.95%; font-size: calc(var(--scale-factor)*9.12px); font-family: monospace;"> </span><span role="presentation" dir="ltr" style="left: 51.75%; top: 93.02%; font-size: calc(var(--scale-factor)*9.12px); font-family: sans-serif; transform: scaleX(0.917091);">2026/3/3</span><br role="presentation"><span role="presentation" dir="ltr" style="left: 25.84%; top: 8.87%; font-size: calc(var(--scale-factor)*10.56px); font-family: sans-serif; transform: scaleX(0.995284);">【模型对话（命令行）截图】</span><span role="presentation" dir="ltr" style="left: 47.89%; top: 8.87%; font-size: calc(var(--scale-factor)*10.56px); font-family: sans-serif; transform: scaleX(0.995225);">（命令行界面中必须有模型名称）</span><br role="presentation"><span role="presentation" dir="ltr" style="left: 28.47%; top: 42.25%; font-size: calc(var(--scale-factor)*10.56px); font-family: sans-serif; transform: scaleX(0.995284);">【模型对话（可视化）截图】</span><span role="presentation" dir="ltr" style="left: 50.52%; top: 42.25%; font-size: calc(var(--scale-factor)*10.56px); font-family: sans-serif; transform: scaleX(0.99532);">（界面中必须有模型名称）</span><div class="endOfContent"></div></div><div class="annotationLayer" hidden=""></div><div class="annotationEditorLayer disabled" hidden="" dir="ltr" tabindex="0" data-main-rotation="0" style="width: round(var(--scale-factor) * 595.2px, 1px); height: round(var(--scale-factor) * 841.8px, 1px);"></div></div><div class="page" data-page-number="4" role="region" data-l10n-id="pdfjs-page-landmark" data-l10n-args="{&quot;page&quot;:4}" style="width: round(var(--scale-factor) * 595.2px, 1px); height: round(var(--scale-factor) * 841.8px, 1px);" aria-label="第 ⁨4⁩ 页"></div><div class="page" data-page-number="5" role="region" data-l10n-id="pdfjs-page-landmark" data-l10n-args="{&quot;page&quot;:5}" style="width: round(var(--scale-factor) * 595.2px, 1px); height: round(var(--scale-factor) * 841.8px, 1px);" aria-label="第 ⁨5⁩ 页"></div><div class="page" data-page-number="6" role="region" data-l10n-id="pdfjs-page-landmark" data-l10n-args="{&quot;page&quot;:6}" style="width: round(var(--scale-factor) * 595.2px, 1px); height: round(var(--scale-factor) * 841.8px, 1px);" aria-label="第 ⁨6⁩ 页"></div><div class="page" data-page-number="7" role="region" data-l10n-id="pdfjs-page-landmark" data-l10n-args="{&quot;page&quot;:7}" style="width: round(var(--scale-factor) * 595.2px, 1px); height: round(var(--scale-factor) * 841.8px, 1px);" aria-label="第 ⁨7⁩ 页"></div><div class="page" data-page-number="8" role="region" data-l10n-id="pdfjs-page-landmark" data-l10n-args="{&quot;page&quot;:8}" style="width: round(var(--scale-factor) * 595.2px, 1px); height: round(var(--scale-factor) * 841.8px, 1px);" aria-label="第 ⁨8⁩ 页"></div><div class="page" data-page-number="9" role="region" data-l10n-id="pdfjs-page-landmark" data-l10n-args="{&quot;page&quot;:9}" style="width: round(var(--scale-factor) * 595.2px, 1px); height: round(var(--scale-factor) * 841.8px, 1px);" aria-label="第 ⁨9⁩ 页"></div><div class="page" data-page-number="10" role="region" data-l10n-id="pdfjs-page-landmark" data-l10n-args="{&quot;page&quot;:10}" style="width: round(var(--scale-factor) * 595.2px, 1px); height: round(var(--scale-factor) * 841.8px, 1px);" aria-label="第 ⁨10⁩ 页"></div><div class="page" data-page-number="11" role="region" data-l10n-id="pdfjs-page-landmark" data-l10n-args="{&quot;page&quot;:11}" style="width: round(var(--scale-factor) * 595.2px, 1px); height: round(var(--scale-factor) * 841.8px, 1px);" aria-label="第 ⁨11⁩ 页"></div><div class="page" data-page-number="12" role="region" data-l10n-id="pdfjs-page-landmark" data-l10n-args="{&quot;page&quot;:12}" style="width: round(var(--scale-factor) * 595.2px, 1px); height: round(var(--scale-factor) * 841.8px, 1px);" aria-label="第 ⁨12⁩ 页"></div><div class="page" data-page-number="13" role="region" data-l10n-id="pdfjs-page-landmark" data-l10n-args="{&quot;page&quot;:13}" style="width: round(var(--scale-factor) * 595.2px, 1px); height: round(var(--scale-factor) * 841.8px, 1px);" aria-label="第 ⁨13⁩ 页"></div><div class="page" data-page-number="14" role="region" data-l10n-id="pdfjs-page-landmark" data-l10n-args="{&quot;page&quot;:14}" style="width: round(var(--scale-factor) * 595.2px, 1px); height: round(var(--scale-factor) * 841.8px, 1px);" aria-label="第 ⁨14⁩ 页"></div><div class="page" data-page-number="15" role="region" data-l10n-id="pdfjs-page-landmark" data-l10n-args="{&quot;page&quot;:15}" style="width: round(var(--scale-factor) * 595.2px, 1px); height: round(var(--scale-factor) * 841.8px, 1px);" aria-label="第 ⁨15⁩ 页"></div><div class="page" data-page-number="16" role="region" data-l10n-id="pdfjs-page-landmark" data-l10n-args="{&quot;page&quot;:16}" style="width: round(var(--scale-factor) * 595.2px, 1px); height: round(var(--scale-factor) * 841.8px, 1px);" aria-label="第 ⁨16⁩ 页"></div></div>
+          <div id="editor" ref="editorRef" class="pdfViewer" style="pointer-events: none;"><div class="page" data-page-number="1" role="region" data-l10n-id="pdfjs-page-landmark" data-l10n-args="{&quot;page&quot;:1}" style="width: 991.6px; height: 1402.6px; position: absolute; left: 95px; top: 1px;" aria-label="第 ⁨1⁩ 页"><div class="canvas-container" style="width: 991px; height: 1402px; position: relative; user-select: none;"><canvas id="fabricCanvas1" class="fabricCanvas lower-canvas" width="1238.75" height="1752.5" style="position: absolute; width: 991px; height: 1402px; left: 0px; top: 0px; touch-action: none; user-select: none;"></canvas><canvas class="upper-canvas fabricCanvas" width="1238.75" height="1752.5" style="position: absolute; width: 991px; height: 1402px; left: 0px; top: 0px; touch-action: none; user-select: none;"></canvas></div></div><div class="page" data-page-number="2" role="region" data-l10n-id="pdfjs-page-landmark" data-l10n-args="{&quot;page&quot;:2}" style="width: 991.6px; height: 1402.6px; position: absolute; left: 95px; top: 1415px;" aria-label="第 ⁨2⁩ 页"><div class="canvas-container" style="width: 991px; height: 1402px; position: relative; user-select: none;"><canvas id="fabricCanvas2" class="fabricCanvas lower-canvas" width="1238.75" height="1752.5" style="position: absolute; width: 991px; height: 1402px; left: 0px; top: 0px; touch-action: none; user-select: none;"></canvas><canvas class="upper-canvas fabricCanvas" width="1238.75" height="1752.5" style="position: absolute; width: 991px; height: 1402px; left: 0px; top: 0px; touch-action: none; user-select: none;"></canvas></div></div><div class="page" data-page-number="3" role="region" data-l10n-id="pdfjs-page-landmark" data-l10n-args="{&quot;page&quot;:3}" style="width: 991.6px; height: 1402.6px; position: absolute; left: 95px; top: 2828px;" aria-label="第 ⁨3⁩ 页"><div class="canvas-container" style="width: 991px; height: 1402px; position: relative; user-select: none;"><canvas id="fabricCanvas3" class="fabricCanvas lower-canvas" width="1238.75" height="1752.5" style="position: absolute; width: 991px; height: 1402px; left: 0px; top: 0px; touch-action: none; user-select: none;"></canvas><canvas class="upper-canvas fabricCanvas" width="1238.75" height="1752.5" style="position: absolute; width: 991px; height: 1402px; left: 0px; top: 0px; touch-action: none; user-select: none;"></canvas></div></div><div class="page" data-page-number="4" role="region" data-l10n-id="pdfjs-page-landmark" data-l10n-args="{&quot;page&quot;:4}" style="width: 991.6px; height: 1402.6px; position: absolute; left: 95px; top: 4242px;" aria-label="第 ⁨4⁩ 页"><div class="canvas-container" style="width: 991px; height: 1402px; position: relative; user-select: none;"><canvas id="fabricCanvas4" class="fabricCanvas lower-canvas" width="1238.75" height="1752.5" style="position: absolute; width: 991px; height: 1402px; left: 0px; top: 0px; touch-action: none; user-select: none;"></canvas><canvas class="upper-canvas fabricCanvas" width="1238.75" height="1752.5" style="position: absolute; width: 991px; height: 1402px; left: 0px; top: 0px; touch-action: none; user-select: none;"></canvas></div></div><div class="page" data-page-number="5" role="region" data-l10n-id="pdfjs-page-landmark" data-l10n-args="{&quot;page&quot;:5}" style="width: 991.6px; height: 1402.6px; position: absolute; left: 95px; top: 5655px;" aria-label="第 ⁨5⁩ 页"><div class="canvas-container" style="width: 991px; height: 1402px; position: relative; user-select: none;"><canvas id="fabricCanvas5" class="fabricCanvas lower-canvas" width="1238.75" height="1752.5" style="position: absolute; width: 991px; height: 1402px; left: 0px; top: 0px; touch-action: none; user-select: none;"></canvas><canvas class="upper-canvas fabricCanvas" width="1238.75" height="1752.5" style="position: absolute; width: 991px; height: 1402px; left: 0px; top: 0px; touch-action: none; user-select: none;"></canvas></div></div><div class="page" data-page-number="6" role="region" data-l10n-id="pdfjs-page-landmark" data-l10n-args="{&quot;page&quot;:6}" style="width: 991.6px; height: 1402.6px; position: absolute; left: 95px; top: 7069px;" aria-label="第 ⁨6⁩ 页"><div class="canvas-container" style="width: 991px; height: 1402px; position: relative; user-select: none;"><canvas id="fabricCanvas6" class="fabricCanvas lower-canvas" width="1238.75" height="1752.5" style="position: absolute; width: 991px; height: 1402px; left: 0px; top: 0px; touch-action: none; user-select: none;"></canvas><canvas class="upper-canvas fabricCanvas" width="1238.75" height="1752.5" style="position: absolute; width: 991px; height: 1402px; left: 0px; top: 0px; touch-action: none; user-select: none;"></canvas></div></div><div class="page" data-page-number="7" role="region" data-l10n-id="pdfjs-page-landmark" data-l10n-args="{&quot;page&quot;:7}" style="width: 991.6px; height: 1402.6px; position: absolute; left: 95px; top: 8483px;" aria-label="第 ⁨7⁩ 页"><div class="canvas-container" style="width: 991px; height: 1402px; position: relative; user-select: none;"><canvas id="fabricCanvas7" class="fabricCanvas lower-canvas" width="1238.75" height="1752.5" style="position: absolute; width: 991px; height: 1402px; left: 0px; top: 0px; touch-action: none; user-select: none;"></canvas><canvas class="upper-canvas fabricCanvas" width="1238.75" height="1752.5" style="position: absolute; width: 991px; height: 1402px; left: 0px; top: 0px; touch-action: none; user-select: none;"></canvas></div></div><div class="page" data-page-number="8" role="region" data-l10n-id="pdfjs-page-landmark" data-l10n-args="{&quot;page&quot;:8}" style="width: 991.6px; height: 1402.6px; position: absolute; left: 95px; top: 9896px;" aria-label="第 ⁨8⁩ 页"><div class="canvas-container" style="width: 991px; height: 1402px; position: relative; user-select: none;"><canvas id="fabricCanvas8" class="fabricCanvas lower-canvas" width="1238.75" height="1752.5" style="position: absolute; width: 991px; height: 1402px; left: 0px; top: 0px; touch-action: none; user-select: none;"></canvas><canvas class="upper-canvas fabricCanvas" width="1238.75" height="1752.5" style="position: absolute; width: 991px; height: 1402px; left: 0px; top: 0px; touch-action: none; user-select: none;"></canvas></div></div><div class="page" data-page-number="9" role="region" data-l10n-id="pdfjs-page-landmark" data-l10n-args="{&quot;page&quot;:9}" style="width: 991.6px; height: 1402.6px; position: absolute; left: 95px; top: 11310px;" aria-label="第 ⁨9⁩ 页"><div class="canvas-container" style="width: 991px; height: 1402px; position: relative; user-select: none;"><canvas id="fabricCanvas9" class="fabricCanvas lower-canvas" width="1238.75" height="1752.5" style="position: absolute; width: 991px; height: 1402px; left: 0px; top: 0px; touch-action: none; user-select: none;"></canvas><canvas class="upper-canvas fabricCanvas" width="1238.75" height="1752.5" style="position: absolute; width: 991px; height: 1402px; left: 0px; top: 0px; touch-action: none; user-select: none;"></canvas></div></div><div class="page" data-page-number="10" role="region" data-l10n-id="pdfjs-page-landmark" data-l10n-args="{&quot;page&quot;:10}" style="width: 991.6px; height: 1402.6px; position: absolute; left: 95px; top: 12723px;" aria-label="第 ⁨10⁩ 页"><div class="canvas-container" style="width: 991px; height: 1402px; position: relative; user-select: none;"><canvas id="fabricCanvas10" class="fabricCanvas lower-canvas" width="1238.75" height="1752.5" style="position: absolute; width: 991px; height: 1402px; left: 0px; top: 0px; touch-action: none; user-select: none;"></canvas><canvas class="upper-canvas fabricCanvas" width="1238.75" height="1752.5" style="position: absolute; width: 991px; height: 1402px; left: 0px; top: 0px; touch-action: none; user-select: none;"></canvas></div></div><div class="page" data-page-number="11" role="region" data-l10n-id="pdfjs-page-landmark" data-l10n-args="{&quot;page&quot;:11}" style="width: 991.6px; height: 1402.6px; position: absolute; left: 95px; top: 14137px;" aria-label="第 ⁨11⁩ 页"><div class="canvas-container" style="width: 991px; height: 1402px; position: relative; user-select: none;"><canvas id="fabricCanvas11" class="fabricCanvas lower-canvas" width="1238.75" height="1752.5" style="position: absolute; width: 991px; height: 1402px; left: 0px; top: 0px; touch-action: none; user-select: none;"></canvas><canvas class="upper-canvas fabricCanvas" width="1238.75" height="1752.5" style="position: absolute; width: 991px; height: 1402px; left: 0px; top: 0px; touch-action: none; user-select: none;"></canvas></div></div><div class="page" data-page-number="12" role="region" data-l10n-id="pdfjs-page-landmark" data-l10n-args="{&quot;page&quot;:12}" style="width: 991.6px; height: 1402.6px; position: absolute; left: 95px; top: 15551px;" aria-label="第 ⁨12⁩ 页"><div class="canvas-container" style="width: 991px; height: 1402px; position: relative; user-select: none;"><canvas id="fabricCanvas12" class="fabricCanvas lower-canvas" width="1238.75" height="1752.5" style="position: absolute; width: 991px; height: 1402px; left: 0px; top: 0px; touch-action: none; user-select: none;"></canvas><canvas class="upper-canvas fabricCanvas" width="1238.75" height="1752.5" style="position: absolute; width: 991px; height: 1402px; left: 0px; top: 0px; touch-action: none; user-select: none;"></canvas></div></div><div class="page" data-page-number="13" role="region" data-l10n-id="pdfjs-page-landmark" data-l10n-args="{&quot;page&quot;:13}" style="width: 991.6px; height: 1402.6px; position: absolute; left: 95px; top: 16964px;" aria-label="第 ⁨13⁩ 页"><div class="canvas-container" style="width: 991px; height: 1402px; position: relative; user-select: none;"><canvas id="fabricCanvas13" class="fabricCanvas lower-canvas" width="1238.75" height="1752.5" style="position: absolute; width: 991px; height: 1402px; left: 0px; top: 0px; touch-action: none; user-select: none;"></canvas><canvas class="upper-canvas fabricCanvas" width="1238.75" height="1752.5" style="position: absolute; width: 991px; height: 1402px; left: 0px; top: 0px; touch-action: none; user-select: none;"></canvas></div></div><div class="page" data-page-number="14" role="region" data-l10n-id="pdfjs-page-landmark" data-l10n-args="{&quot;page&quot;:14}" style="width: 991.6px; height: 1402.6px; position: absolute; left: 95px; top: 18378px;" aria-label="第 ⁨14⁩ 页"><div class="canvas-container" style="width: 991px; height: 1402px; position: relative; user-select: none;"><canvas id="fabricCanvas14" class="fabricCanvas lower-canvas" width="1238.75" height="1752.5" style="position: absolute; width: 991px; height: 1402px; left: 0px; top: 0px; touch-action: none; user-select: none;"></canvas><canvas class="upper-canvas fabricCanvas" width="1238.75" height="1752.5" style="position: absolute; width: 991px; height: 1402px; left: 0px; top: 0px; touch-action: none; user-select: none;"></canvas></div></div><div class="page" data-page-number="15" role="region" data-l10n-id="pdfjs-page-landmark" data-l10n-args="{&quot;page&quot;:15}" style="width: 991.6px; height: 1402.6px; position: absolute; left: 95px; top: 19791px;" aria-label="第 ⁨15⁩ 页"><div class="canvas-container" style="width: 991px; height: 1402px; position: relative; user-select: none;"><canvas id="fabricCanvas15" class="fabricCanvas lower-canvas" width="1238.75" height="1752.5" style="position: absolute; width: 991px; height: 1402px; left: 0px; top: 0px; touch-action: none; user-select: none;"></canvas><canvas class="upper-canvas fabricCanvas" width="1238.75" height="1752.5" style="position: absolute; width: 991px; height: 1402px; left: 0px; top: 0px; touch-action: none; user-select: none;"></canvas></div></div><div class="page" data-page-number="16" role="region" data-l10n-id="pdfjs-page-landmark" data-l10n-args="{&quot;page&quot;:16}" style="width: 991.6px; height: 1402.6px; position: absolute; left: 95px; top: 21205px;" aria-label="第 ⁨16⁩ 页"><div class="canvas-container" style="width: 991px; height: 1402px; position: relative; user-select: none;"><canvas id="fabricCanvas16" class="fabricCanvas lower-canvas" width="1238.75" height="1752.5" style="position: absolute; width: 991px; height: 1402px; left: 0px; top: 0px; touch-action: none; user-select: none;"></canvas><canvas class="upper-canvas fabricCanvas" width="1238.75" height="1752.5" style="position: absolute; width: 991px; height: 1402px; left: 0px; top: 0px; touch-action: none; user-select: none;"></canvas></div></div></div>
+        </div>
+      </div> <!-- mainContainer -->
+
+      <div id="dialogContainer">
+        <dialog id="passwordDialog">
+          <div class="row">
+            <label for="password" id="passwordText" data-l10n-id="pdfjs-password-label">输入密码以打开此 PDF 文件。</label>
+          </div>
+          <div class="row">
+            <input type="password" id="password" class="toolbarField">
+          </div>
+          <div class="buttonRow">
+            <button id="passwordCancel" class="dialogButton" type="button"><span data-l10n-id="pdfjs-password-cancel-button">取消</span></button>
+            <button id="passwordSubmit" class="dialogButton" type="button"><span data-l10n-id="pdfjs-password-ok-button">确定</span></button>
+          </div>
+        </dialog>
+        <dialog id="documentPropertiesDialog">
+          <div class="row">
+            <span id="fileNameLabel" data-l10n-id="pdfjs-document-properties-file-name">文件名:</span>
+            <p id="fileNameField" aria-labelledby="fileNameLabel">-</p>
+          </div>
+          <div class="row">
+            <span id="fileSizeLabel" data-l10n-id="pdfjs-document-properties-file-size">文件大小:</span>
+            <p id="fileSizeField" aria-labelledby="fileSizeLabel">-</p>
+          </div>
+          <div class="separator"></div>
+          <div class="row">
+            <span id="titleLabel" data-l10n-id="pdfjs-document-properties-title">标题:</span>
+            <p id="titleField" aria-labelledby="titleLabel">-</p>
+          </div>
+          <div class="row">
+            <span id="authorLabel" data-l10n-id="pdfjs-document-properties-author">作者:</span>
+            <p id="authorField" aria-labelledby="authorLabel">-</p>
+          </div>
+          <div class="row">
+            <span id="subjectLabel" data-l10n-id="pdfjs-document-properties-subject">主题:</span>
+            <p id="subjectField" aria-labelledby="subjectLabel">-</p>
+          </div>
+          <div class="row">
+            <span id="keywordsLabel" data-l10n-id="pdfjs-document-properties-keywords">关键词:</span>
+            <p id="keywordsField" aria-labelledby="keywordsLabel">-</p>
+          </div>
+          <div class="row">
+            <span id="creationDateLabel" data-l10n-id="pdfjs-document-properties-creation-date">创建日期:</span>
+            <p id="creationDateField" aria-labelledby="creationDateLabel">-</p>
+          </div>
+          <div class="row">
+            <span id="modificationDateLabel" data-l10n-id="pdfjs-document-properties-modification-date">修改日期:</span>
+            <p id="modificationDateField" aria-labelledby="modificationDateLabel">-</p>
+          </div>
+          <div class="row">
+            <span id="creatorLabel" data-l10n-id="pdfjs-document-properties-creator">创建者:</span>
+            <p id="creatorField" aria-labelledby="creatorLabel">-</p>
+          </div>
+          <div class="separator"></div>
+          <div class="row">
+            <span id="producerLabel" data-l10n-id="pdfjs-document-properties-producer">PDF 生成器：</span>
+            <p id="producerField" aria-labelledby="producerLabel">-</p>
+          </div>
+          <div class="row">
+            <span id="versionLabel" data-l10n-id="pdfjs-document-properties-version">PDF 版本:</span>
+            <p id="versionField" aria-labelledby="versionLabel">-</p>
+          </div>
+          <div class="row">
+            <span id="pageCountLabel" data-l10n-id="pdfjs-document-properties-page-count">页数:</span>
+            <p id="pageCountField" aria-labelledby="pageCountLabel">-</p>
+          </div>
+          <div class="row">
+            <span id="pageSizeLabel" data-l10n-id="pdfjs-document-properties-page-size">页面大小：</span>
+            <p id="pageSizeField" aria-labelledby="pageSizeLabel">-</p>
+          </div>
+          <div class="separator"></div>
+          <div class="row">
+            <span id="linearizedLabel" data-l10n-id="pdfjs-document-properties-linearized">快速 Web 视图：</span>
+            <p id="linearizedField" aria-labelledby="linearizedLabel">-</p>
+          </div>
+          <div class="buttonRow">
+            <button id="documentPropertiesClose" class="dialogButton" type="button"><span data-l10n-id="pdfjs-document-properties-close-button">关闭</span></button>
+          </div>
+        </dialog>
+        <dialog class="dialog altText" id="altTextDialog" aria-labelledby="dialogLabel" aria-describedby="dialogDescription">
+          <div id="altTextContainer" class="mainContainer">
+            <div id="overallDescription">
+              <span id="dialogLabel" data-l10n-id="pdfjs-editor-alt-text-dialog-label" class="title">选择一项</span>
+              <span id="dialogDescription" data-l10n-id="pdfjs-editor-alt-text-dialog-description">替换文字可在用户无法看到或加载图像时，描述其内容。</span>
+            </div>
+            <div id="addDescription">
+              <div class="radio">
+                <div class="radioButton">
+                  <input type="radio" id="descriptionButton" name="altTextOption" tabindex="0" aria-describedby="descriptionAreaLabel" checked="">
+                  <label for="descriptionButton" data-l10n-id="pdfjs-editor-alt-text-add-description-label">添加描述</label>
+                </div>
+                <div class="radioLabel">
+                  <span id="descriptionAreaLabel" data-l10n-id="pdfjs-editor-alt-text-add-description-description">描述主题、背景或动作，长度尽量控制在两句话内。</span>
+                </div>
+              </div>
+              <div class="descriptionArea">
+                <textarea id="descriptionTextarea" placeholder="例如：一个少年坐到桌前，准备吃饭" aria-labelledby="descriptionAreaLabel" data-l10n-id="pdfjs-editor-alt-text-textarea" tabindex="0"></textarea>
+              </div>
+            </div>
+            <div id="markAsDecorative">
+              <div class="radio">
+                <div class="radioButton">
+                  <input type="radio" id="decorativeButton" name="altTextOption" aria-describedby="decorativeLabel">
+                  <label for="decorativeButton" data-l10n-id="pdfjs-editor-alt-text-mark-decorative-label">标记为装饰</label>
+                </div>
+                <div class="radioLabel">
+                  <span id="decorativeLabel" data-l10n-id="pdfjs-editor-alt-text-mark-decorative-description">用于装饰的图像，例如边框和水印。</span>
+                </div>
+              </div>
+            </div>
+            <div id="buttons">
+              <button id="altTextCancel" class="secondaryButton" type="button" tabindex="0"><span data-l10n-id="pdfjs-editor-alt-text-cancel-button">取消</span></button>
+              <button id="altTextSave" class="primaryButton" type="button" tabindex="0"><span data-l10n-id="pdfjs-editor-alt-text-save-button">保存</span></button>
+            </div>
+          </div>
+        </dialog>
+        <dialog class="dialog newAltText" id="newAltTextDialog" aria-labelledby="newAltTextTitle" aria-describedby="newAltTextDescription" tabindex="0">
+          <div id="newAltTextContainer" class="mainContainer">
+            <div class="title">
+              <span id="newAltTextTitle" data-l10n-id="pdfjs-editor-new-alt-text-dialog-edit-label" role="sectionhead" tabindex="0">Edit alt text (image description)</span>
+            </div>
+            <div id="mainContent">
+              <div id="descriptionAndSettings">
+                <div id="descriptionInstruction">
+                  <div id="newAltTextDescriptionContainer">
+                    <div class="altTextSpinner" role="status" aria-live="polite"></div>
+                    <textarea id="newAltTextDescriptionTextarea" placeholder="Write your description here…" aria-labelledby="descriptionAreaLabel" data-l10n-id="pdfjs-editor-new-alt-text-textarea" tabindex="0"></textarea>
+                  </div>
+                  <span id="newAltTextDescription" role="note" data-l10n-id="pdfjs-editor-new-alt-text-description">Short description for people who can’t see the image or when the image doesn’t load.</span>
+                  <div id="newAltTextDisclaimer" role="note"><div><span data-l10n-id="pdfjs-editor-new-alt-text-disclaimer1">This alt text was created automatically and may be inaccurate.</span> <a href="https://support.mozilla.org/en-US/kb/pdf-alt-text" target="_blank" rel="noopener noreferrer" id="newAltTextLearnMore" data-l10n-id="pdfjs-editor-new-alt-text-disclaimer-learn-more-url" tabindex="0">Learn more</a></div></div>
+                </div>
+                <div id="newAltTextCreateAutomatically" class="toggler">
+                  <button id="newAltTextCreateAutomaticallyButton" class="toggle-button" type="button" aria-pressed="true" tabindex="0"></button>
+                  <label for="newAltTextCreateAutomaticallyButton" class="togglerLabel" data-l10n-id="pdfjs-editor-new-alt-text-create-automatically-button-label">Create alt text automatically</label>
+                </div>
+                <div id="newAltTextDownloadModel" class="hidden">
+                  <span id="newAltTextDownloadModelDescription" data-l10n-id="pdfjs-editor-new-alt-text-ai-model-downloading-progress" aria-valuemin="0" data-l10n-args="{ &quot;totalSize&quot;: 0, &quot;downloadedSize&quot;: 0 }">Downloading alt text AI model (0 of 0 MB)</span>
+                </div>
+              </div>
+              <div id="newAltTextImagePreview"></div>
+            </div>
+            <div id="newAltTextError" class="messageBar">
+              <div>
+                <div>
+                  <span class="title" data-l10n-id="pdfjs-editor-new-alt-text-error-title">Couldn’t create alt text automatically</span>
+                  <span class="description" data-l10n-id="pdfjs-editor-new-alt-text-error-description">Please write your own alt text or try again later.</span>
+                </div>
+                <button id="newAltTextCloseButton" class="closeButton" type="button" tabindex="0" title="Close"><span data-l10n-id="pdfjs-editor-new-alt-text-error-close-button">Close</span></button>
+              </div>
+            </div>
+            <div id="newAltTextButtons" class="dialogButtonsGroup">
+              <button id="newAltTextCancel" type="button" class="secondaryButton hidden" tabindex="0"><span data-l10n-id="pdfjs-editor-alt-text-cancel-button">取消</span></button>
+              <button id="newAltTextNotNow" type="button" class="secondaryButton" tabindex="0"><span data-l10n-id="pdfjs-editor-new-alt-text-not-now-button">Not now</span></button>
+              <button id="newAltTextSave" type="button" class="primaryButton" tabindex="0"><span data-l10n-id="pdfjs-editor-alt-text-save-button">保存</span></button>
+            </div>
+          </div>
+        </dialog>
+
+        <dialog class="dialog" id="altTextSettingsDialog" aria-labelledby="altTextSettingsTitle">
+          <div id="altTextSettingsContainer" class="mainContainer">
+            <div class="title">
+              <span id="altTextSettingsTitle" data-l10n-id="pdfjs-editor-alt-text-settings-dialog-label" role="sectionhead" tabindex="0" class="title">Image alt text settings</span>
+            </div>
+            <div id="automaticAltText">
+              <span data-l10n-id="pdfjs-editor-alt-text-settings-automatic-title">Automatic alt text</span>
+              <div id="automaticSettings">
+                <div id="createModelSetting">
+                  <div class="toggler">
+                    <button id="createModelButton" type="button" class="toggle-button" aria-pressed="true" tabindex="0"></button>
+                    <label for="createModelButton" class="togglerLabel" data-l10n-id="pdfjs-editor-alt-text-settings-create-model-button-label">Create alt text automatically</label>
+                  </div>
+                  <div id="createModelDescription" class="description">
+                    <span data-l10n-id="pdfjs-editor-alt-text-settings-create-model-description">Suggests descriptions to help people who can’t see the image or when the image doesn’t load.</span> <a href="https://support.mozilla.org/en-US/kb/pdf-alt-text" target="_blank" rel="noopener noreferrer" id="altTextSettingsLearnMore" data-l10n-id="pdfjs-editor-new-alt-text-disclaimer-learn-more-url" tabindex="0">Learn more</a>
+                  </div>
+                </div>
+                <div id="aiModelSettings">
+                  <div>
+                    <span data-l10n-id="pdfjs-editor-alt-text-settings-download-model-label" data-l10n-args="{ &quot;totalSize&quot;: 180 }">Alt text AI model (180MB)</span>
+                    <div id="aiModelDescription" class="description">
+                      <span data-l10n-id="pdfjs-editor-alt-text-settings-ai-model-description">Runs locally on your device so your data stays private. Required for automatic alt text.</span>
+                    </div>
+                  </div>
+                  <button id="deleteModelButton" type="button" class="secondaryButton" tabindex="0"><span data-l10n-id="pdfjs-editor-alt-text-settings-delete-model-button">Delete</span></button>
+                  <button id="downloadModelButton" type="button" class="secondaryButton" tabindex="0"><span data-l10n-id="pdfjs-editor-alt-text-settings-download-model-button">Download</span></button>
+                </div>
+              </div>
+            </div>
+            <div class="dialogSeparator"></div>
+            <div id="altTextEditor">
+              <span data-l10n-id="pdfjs-editor-alt-text-settings-editor-title">Alt text editor</span>
+              <div id="showAltTextEditor">
+                <div class="toggler">
+                  <button id="showAltTextDialogButton" type="button" class="toggle-button" aria-pressed="true" tabindex="0"></button>
+                  <label for="showAltTextDialogButton" class="togglerLabel" data-l10n-id="pdfjs-editor-alt-text-settings-show-dialog-button-label">Show alt text editor right away when adding an image</label>
+                </div>
+                <div id="showAltTextDialogDescription" class="description">
+                  <span data-l10n-id="pdfjs-editor-alt-text-settings-show-dialog-description">Helps you make sure all your images have alt text.</span>
+                </div>
+              </div>
+            </div>
+            <div id="buttons" class="dialogButtonsGroup">
+              <button id="altTextSettingsCloseButton" type="button" class="primaryButton" tabindex="0"><span data-l10n-id="pdfjs-editor-alt-text-settings-close-button">Close</span></button>
+            </div>
+          </div>
+        </dialog>
+        <dialog id="printServiceDialog" style="min-width: 200px;">
+          <div class="row">
+            <span data-l10n-id="pdfjs-print-progress-message">正在准备打印文档…</span>
+          </div>
+          <div class="row">
+            <progress value="0" max="100"></progress>
+            <span data-l10n-id="pdfjs-print-progress-percent" data-l10n-args="{ &quot;progress&quot;: 0 }" class="relative-progress">⁨0⁩%</span>
+          </div>
+          <div class="buttonRow">
+            <button id="printCancel" class="dialogButton" type="button"><span data-l10n-id="pdfjs-print-progress-close-button">取消</span></button>
+          </div>
+        </dialog>
+      </div>  <!-- dialogContainer -->
+
+    </div> <!-- outerContainer -->
+    <div id="printContainer"></div>
+    <link rel="stylesheet" href="./15612-daff88c4.css" media="all" onload="if(media!=&#39;all&#39;)media=&#39;all&#39;">
+<link rel="stylesheet" href="./styles-base-47c47f1e.css" media="all" onload="if(media!=&#39;all&#39;)media=&#39;all&#39;">
+<link rel="stylesheet" href="./lms-pdf-editor-a8cdecd6.css" media="all" onload="if(media!=&#39;all&#39;)media=&#39;all&#39;"><script type="module" src="./lms-pdf-editor-824dd4d7.js.下载"></script>
+<script type="module" src="./93110-634bbef4.js.下载"></script>
+<script type="module" src="./90887-960c0753.js.下载"></script>
+<script type="module" src="./68924-a30f5597.js.下载"></script>
+<script type="module" src="./80194-f1341e54.js.下载"></script>
+<script type="module" src="./66266-f1481ff1.js.下载"></script>
+<script type="module" src="./37464-2b4f7bd5.js.下载"></script>
+<script type="module" src="./98300-7bbf159e.js.下载"></script>
+<script type="module" src="./14610-07d18a37.js.下载"></script>
+<script type="module" src="./89722-a86be766.js.下载"></script>
+<script type="module" src="./56095-d525c8f3.js.下载"></script>
+<script type="module" src="./93696-5f10c913.js.下载"></script>
+<script type="module" src="./48938-ac64b718.js.下载"></script>
+<script type="module" src="./56029-a5e838cb.js.下载"></script>
+<script type="module" src="./59587-e9fcd7aa.js.下载"></script>
+<script type="module" src="./lms-pdf-editor-ac683b30.js.下载"></script>
+  
+<input id="fileInput" hidden="" type="file"><canvas class="hiddenCanvasElement" lang="" height="0" width="0"></canvas></body></html>
