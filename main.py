@@ -1,332 +1,203 @@
-"""
-Course Auto Grader - Main entry point.
-Automates login, submission extraction, and LLM-based grading.
-"""
-
-import json
-import logging
-import os
-from datetime import datetime
-from pathlib import Path
+import time
+import tomllib
 
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.ui import WebDriverWait
 
-from grading_config import GradingConfig
-from llm_grader import LLMGrader
-from submission_scraper import SubmissionScraper
-
-# Configure logging
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
-    handlers=[
-        logging.StreamHandler(),
-        logging.FileHandler("grading.log", encoding="utf-8")
-    ]
-)
-logger = logging.getLogger(__name__)
-
-
-def load_config(file_path: str = "config.toml") -> dict:
-    """Load configuration from TOML file."""
-    try:
-        import tomllib
-    except ImportError:
-        import tomli as tomllib
-    
+import os
+import time
+def load_config(file_path="config.toml"):
     with open(file_path, "rb") as f:
         return tomllib.load(f)
 
 
-def save_grading_results(
-    results: dict,
-    output_dir: str = "grading_results",
-    assignment_name: str = "assignment"
-) -> str:
-    """
-    Save grading results to JSON and CSV files.
-    
-    Args:
-        results: Dictionary of grading results.
-        output_dir: Directory to save results.
-        assignment_name: Name of the assignment for file naming.
-        
-    Returns:
-        Path to the output directory.
-    """
-    output_path = Path(output_dir)
-    output_path.mkdir(parents=True, exist_ok=True)
-    
-    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    
-    # Save detailed JSON results
-    json_file = output_path / f"{assignment_name}_{timestamp}.json"
-    serializable_results = {}
-    for student_id, result in results.items():
-        if result:
-            serializable_results[student_id] = result.to_dict()
-        else:
-            serializable_results[student_id] = None
-    
-    with open(json_file, "w", encoding="utf-8") as f:
-        json.dump(serializable_results, f, ensure_ascii=False, indent=2)
-    logger.info(f"Saved detailed results to: {json_file}")
-    
-    # Save summary CSV
-    csv_file = output_path / f"{assignment_name}_{timestamp}_summary.csv"
-    with open(csv_file, "w", encoding="utf-8") as f:
-        f.write("学号，姓名，总分，总体评价\n")
-        for student_id, result in results.items():
-            if result:
-                comment = result.overall_comment.replace("\n", " ")
-                f.write(f"{student_id},,{result.total_score},{comment}\n")
-            else:
-                f.write(f"{student_id},,,评分失败\n")
-    logger.info(f"Saved summary CSV to: {csv_file}")
-    
-    return str(output_path)
-
-
-def login_course(driver: webdriver.Chrome, wait: WebDriverWait, config: dict) -> bool:
-    """
-    Login to the course website.
-    
-    Args:
-        driver: Selenium Chrome driver.
-        wait: WebDriverWait instance.
-        config: Configuration dictionary with credentials.
-        
-    Returns:
-        True if login successful, False otherwise.
-    """
+def main():
+    # 1. 加载配置
+    config = load_config()
     username = config["account"]["username"]
     password = config["account"]["password"]
-    
+    course_url = config["course"]["url"]
+
+    options = webdriver.ChromeOptions()
+    driver = webdriver.Chrome(options=options)
+    wait = WebDriverWait(driver, 15)
+
     try:
-        # 1. Open course homepage
-        logger.info("Opening course website...")
+        # 1. 打开学在浙大首页
+        print("正在打开学在浙大首页...")
         driver.get("https://course.zju.edu.cn/learninginzju?locale=zh-CN")
 
-        # 2. Click login button
-        logger.info("Finding and clicking login button...")
-        login_btn = wait.until(EC.element_to_be_clickable(
-            (By.XPATH, "//a[contains(text(), '统一身份认证')] | //button[contains(text(), '统一身份认证')]")
-        ))
+        # 2. 点击统一身份认证登录按钮
+        # 根据页面特征寻找包含“统一身份认证”字样的链接或按钮
+        print("寻找并点击登录按钮...")
+        login_btn = wait.until(
+            EC.element_to_be_clickable(
+                (By.XPATH, "//a[contains(text(), '统一身份认证')] | //button[contains(text(), '统一身份认证')]")
+            )
+        )
         login_btn.click()
 
-        # 3. Enter credentials
-        logger.info("Entering credentials...")
+        # 3. 在浙大统一身份认证页面输入账号密码并登录
+        print("正在输入统一身份认证账号密码...")
+        # 等待账号输入框出现
         user_input = wait.until(EC.presence_of_element_located((By.ID, "username")))
         pass_input = driver.find_element(By.ID, "password")
-        submit_btn = driver.find_element(By.ID, "dl")
+        submit_btn = driver.find_element(By.ID, "dl")  # "dl" 是浙大登录按钮的常见 ID
 
         user_input.send_keys(username)
         pass_input.send_keys(password)
         submit_btn.click()
 
-        # 4. Wait for login
-        logger.info("Waiting for authentication...")
+        print("等待登录验证...")
         wait.until(EC.url_contains("course.zju.edu.cn"))
-        
-        logger.info("Login successful!")
-        return True
 
-    except Exception as e:
-        logger.error(f"Login failed: {e}")
-        return False
-
-
-def run_grading_workflow(
-    driver: webdriver.Chrome,
-    wait: WebDriverWait,
-    grading_config: GradingConfig,
-    assignment_url: str,
-    submissions_url: str = None
-) -> dict:
-    """
-    Run the complete grading workflow.
-    
-    Args:
-        driver: Selenium Chrome driver.
-        wait: WebDriverWait instance.
-        grading_config: Grading configuration.
-        assignment_url: URL of the assignment page.
-        submissions_url: URL of the submissions list (optional).
-        
-    Returns:
-        Dictionary of grading results.
-    """
-    scraper = SubmissionScraper(driver, wait.timeout)
-    grader = LLMGrader(grading_config)
-    
-    # Step 1: Navigate to assignment page and get requirements
-    logger.info("=" * 50)
-    logger.info("Step 1: Extracting assignment requirements")
-    logger.info("=" * 50)
-    
-    if not scraper.navigate_to_assignment(assignment_url):
-        raise ValueError(f"Failed to navigate to assignment: {assignment_url}")
-    
-    # Allow time for page to fully load
-    driver.implicitly_wait(2)
-    assignment_requirements = scraper.get_assignment_requirements()
-    
-    if not assignment_requirements:
-        logger.warning("Could not extract assignment requirements. Using placeholder.")
-        assignment_requirements = "请根据课程要求完成作业。"
-    
-    logger.info(f"Assignment requirements extracted ({len(assignment_requirements)} chars)")
-    
-    # Step 2: Navigate to submissions page and get all submissions
-    logger.info("=" * 50)
-    logger.info("Step 2: Extracting student submissions")
-    logger.info("=" * 50)
-    
-    if submissions_url:
-        scraper.navigate_to_assignment(submissions_url)
-        driver.implicitly_wait(2)
-    
-    # Try to get submissions from the list page first
-    submissions = scraper.get_all_submissions()
-    
-    # If no submissions found with content, try alternative method
-    if not submissions:
-        logger.info("Could not extract submissions from list view.")
-        logger.info("Please navigate to the submissions list page...")
-        input("Press Enter when you're on the submissions list page...")
-        
-        # Try again after user navigation
-        submissions = scraper.get_all_submissions()
-        
-        # If still no submissions, try visiting each submission individually
-        if not submissions:
-            logger.info("Attempting to collect submission URLs for individual extraction...")
-            # User needs to provide submission URLs or navigate manually
-            submission_urls = []
-            print("Please enter submission URLs one per line (empty line to finish):")
-            while True:
-                url = input().strip()
-                if not url:
-                    break
-                submission_urls.append(url)
-            
-            if submission_urls:
-                submissions = scraper.get_all_submissions_by_visiting_each(submission_urls)
-    
-    if not submissions:
-        logger.warning("No submissions found. Please check the page structure.")
-        return {}
-    
-    # Filter submissions that have content
-    submissions_with_content = [s for s in submissions if s.submission_content]
-    submissions_without_content = [s for s in submissions if not s.submission_content]
-    
-    logger.info(f"Found {len(submissions_with_content)} submissions with content")
-    if submissions_without_content:
-        logger.info(f"{len(submissions_without_content)} submissions need detail view extraction")
-        
-        # For submissions without content, try to extract from detail view
-        for submission in submissions_without_content:
-            logger.info(f"Extracting content for {submission.student_name}...")
-            # The user may need to navigate to each submission detail page
-            # This is handled by the detail view extraction method
-    
-    # Step 3: Grade each submission
-    logger.info("=" * 50)
-    logger.info("Step 3: Grading submissions with LLM")
-    logger.info("=" * 50)
-    
-    results = {}
-    for i, submission in enumerate(submissions_with_content, 1):
-        logger.info(f"Grading submission {i}/{len(submissions_with_content)}: {submission.student_name} ({submission.student_id})")
-        
-        try:
-            result = grader.grade_submission(
-                assignment_requirements,
-                submission.submission_content
-            )
-            results[submission.student_id] = result
-            logger.info(f"  Score: {result.total_score}/{grading_config.criteria.total_points}")
-        except Exception as e:
-            logger.error(f"  Failed to grade: {e}")
-            results[submission.student_id] = None
-    
-    return results
-
-
-def main():
-    """Main entry point for the auto grader."""
-    # Load configuration
-    config = load_config()
-    grading_config = GradingConfig.from_dict(config)
-    
-    # Get OpenAI API key from environment or config
-    api_key = os.environ.get("OPENAI_API_KEY", grading_config.openai_api_key)
-    if not api_key:
-        logger.error("OpenAI API key not found. Please set OPENAI_API_KEY environment variable or add to config.")
-        return
-    
-    grading_config.openai_api_key = api_key
-    
-    # Initialize Selenium
-    options = webdriver.ChromeOptions()
-    # Add options for headless mode if needed
-    # options.add_argument("--headless=new")
-    driver = webdriver.Chrome(options=options)
-    wait = WebDriverWait(driver, 15)
-    
-    try:
-        # Login
-        if not login_course(driver, wait, config):
-            logger.error("Failed to login. Exiting.")
-            return
-        
-        # Navigate to course page
-        course_url = config["course"]["url"]
-        logger.info(f"Navigating to course: {course_url}")
+        print(f"登录成功，正在跳转到课程主页: {course_url}")
         driver.get(course_url)
-        
-        # Get assignment URLs from config or prompt user
-        assignment_url = config.get("grading", {}).get("assignment_url")
-        submissions_url = config.get("grading", {}).get("submissions_url")
-        
-        if not assignment_url:
-            logger.info("Please navigate to the assignment page manually...")
-            input("Press Enter when you're on the assignment page...")
-            assignment_url = driver.current_url
-        
-        # Run grading workflow
-        results = run_grading_workflow(
-            driver, wait, grading_config,
-            assignment_url, submissions_url
-        )
-        
-        # Save results
-        if results:
-            output_path = save_grading_results(results)
-            logger.info(f"Grading completed! Results saved to: {output_path}")
-            
-            # Print summary
-            print("\n" + "=" * 50)
-            print("GRADING SUMMARY")
-            print("=" * 50)
-            for student_id, result in results.items():
-                if result:
-                    print(f"{student_id}: {result.total_score}/{grading_config.criteria.total_points}")
-                else:
-                    print(f"{student_id}: 评分失败")
+        print("成功进入目标课程！")
+
+        # 等待页面基础元素加载完成
+        time.sleep(2)
+
+        grading_tab = wait.until(EC.element_to_be_clickable((By.XPATH, "//span[@ng-click=\"ui.view = 'scores'\"]")))
+
+        if "active" not in grading_tab.get_attribute("class"):
+            grading_tab.click()
+            print("已点击【作业批改】")
+            time.sleep(2)
         else:
-            logger.warning("No grading results to save.")
-        
-        # Keep browser open for review
-        input("\nPress Enter to close browser and exit...")
-        
+            print("当前已经在【作业批改】标签页")
+
+        time.sleep(2)
+
+        print("正在检查【状态】下拉框...")
+        try:
+            status_btn = wait.until(EC.element_to_be_clickable((By.ID, "status-select_ms")))
+
+            current_status = status_btn.text.strip()
+
+            if "已交" not in current_status:
+                print("当前状态不是【已交】，正在展开下拉框...")
+                status_btn.click()
+                time.sleep(1)
+
+                status_option = wait.until(
+                    EC.element_to_be_clickable(
+                        (
+                            By.XPATH,
+                            "//div[contains(@class, 'ui-multiselect-menu') and contains(@style, 'display: block')]//label[contains(., '已交')] | //label[contains(., '已交')]",
+                        )
+                    )
+                )
+                status_option.click()
+                print("已成功选择【已交】状态！")
+                time.sleep(1)  # 等待表格数据按新状态刷新
+            else:
+                print("状态已经是【已交】，无需更改。")
+
+        except Exception as e:
+            print(f"设置【状态】下拉框时跳过，报错信息作调试参考: {e}")
+
+        # 3. 筛选批改状态：未批改
+        print("正在设置批改状态为【未批改】...")
+        try:
+            grading_btn = wait.until(EC.element_to_be_clickable((By.ID, "status-mark_ms")))
+            current_grading_status = grading_btn.text.strip()
+
+            if "未批改" not in current_grading_status:
+                print(f"当前批改状态为【{current_grading_status}】，正在展开下拉框...")
+                grading_btn.click()
+                time.sleep(1)  # 等待下拉动画展开
+
+                ungraded_option = wait.until(
+                    EC.element_to_be_clickable(
+                        (
+                            By.XPATH,
+                            "//div[contains(@class, 'ui-multiselect-menu') and contains(@style, 'display: block')]//input[@value='unmarked']/parent::label",
+                        )
+                    )
+                )
+                ungraded_option.click()
+                print("已成功选中【未批改】！")
+
+                grading_btn.click()
+                time.sleep(2)
+            else:
+                print("批改状态已经是【未批改】，无需更改。")
+
+        except Exception as e:
+            print(f"设置【批改】下拉框时发生异常，请参考报错信息: {e}")
+        # 4. 点击第一个待批改的作业进行批改（当前页面跳转）
+        print("正在查找批改按钮...")
+        correct_icons = wait.until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, "i.font.font-correcting")))
+
+        if len(correct_icons) > 0:
+            try:
+                print(f"太好了，当前页面找到了 {len(correct_icons)} 份待批改的作业！")
+                print("正在点击第一个作业的批改图标...")
+                first_icon = correct_icons[0]
+                current_url = driver.current_url
+                driver.execute_script("arguments[0].click();", first_icon)
+                wait.until(EC.url_changes(current_url))
+                print("正在加载批改详情页...")
+
+                time.sleep(3)
+                print("已成功进入批改详情页！")
+            except Exception as e:
+                print(f"点击批改图标时发生异常，请参考报错信息: {e}")
+        else:
+            print("列表中没有找到批改图标，太棒了，作业已经全部批改完了！")
+
+        print("列表筛选完成！")
+        print("成功进入目标课程！")
+        # 5. 抓取并循环遍历学生提交的所有作业文件
+        print("正在定位左侧的作业文件列表...")
+        try:
+            file_items = wait.until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, "div.tab-body div.upload")))
+
+            print(f"共找到 {len(file_items)} 个提交的文件，准备依次处理...")
+
+            for index, item in enumerate(file_items):
+                try:
+                    name_element = item.find_element(By.CSS_SELECTOR, "span.upload-name")
+                    file_name = name_element.text.strip()
+                except Exception:
+                    file_name = f"未知文件_{index + 1}"
+
+                print("\n=================================")
+                print(f"正在处理第 {index + 1} 个文件: {file_name}")
+
+                driver.execute_script("arguments[0].click();", item)
+
+                time.sleep(5)
+
+                print(f"预览已加载，准备寻找 [{file_name}] 的下载按钮...")
+                try:
+                    download_btn = wait.until(
+                        EC.element_to_be_clickable(
+                            (By.CSS_SELECTOR, "i.font-pdf-editor-download-btn, i.icon-file-preview-download")
+                        )
+                    )
+
+                    driver.execute_script("arguments[0].click();", download_btn)
+                    print(f"成功触发 [{file_name}] 的下载！")
+
+                    # 触发下载后多等一会儿，确保浏览器开始建立下载任务，防止立马点下一个文件导致下载中断
+                    time.sleep(3)
+
+                except Exception as e:
+                    print(f"⚠️ 未找到 [{file_name}] 的下载按钮，可能该文件不支持下载，或者预览还在加载: {e}")
+
+        except Exception as e:
+            print(f"查找或遍历作业文件列表失败，请检查定位逻辑: {e}")
+
+        except Exception as e:
+            print(f"查找或遍历作业文件列表失败，请检查定位逻辑: {e}")
+        input("按下回车键关闭浏览器并结束脚本...")
+
     except Exception as e:
-        logger.error(f"Error in grading workflow: {e}")
-        raise
+        print(f"发生错误: {e}")
     finally:
         driver.quit()
 
