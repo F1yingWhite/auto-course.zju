@@ -74,28 +74,18 @@ def main():
         browser.filter_ungraded()
 
         # 5. 主循环：批改作业
+        print("\n正在寻找首份待批改作业...")
+        icons = browser.get_ungraded_assignments()
+        if not icons:
+            print("所有待批改作业已处理完毕。")
+            return
+
+        # 进入第一份作业
+        browser.open_assignment_detail(icons[0])
+
         while True:
-            print("\n正在检查待批改作业...")
-
             try:
-                icons = browser.get_ungraded_assignments()
-            except Exception as e:
-                print(f"获取待批改列表失败: {e}")
-                break
-
-            if not icons:
-                print("所有待批改作业已处理完毕。")
-                break
-
-            print(f"当前剩余 {len(icons)} 份待批改作业，处理下一份...")
-            # 始终处理列表中的第一个
-            current_icon = icons[0]
-
-            try:
-                try:
-                    browser.open_assignment_detail(current_icon)
-                except Exception:
-                    pass
+                print("\n--- 开始处理当前作业 ---")
 
                 # 下载文件
                 browser.download_current_assignment()
@@ -130,25 +120,24 @@ def main():
                 # 评分完成后清空下载目录
                 clear_downloads(download_dir)
 
-                # 返回作业列表页
-                print("返回作业列表...")
-                try:
-                    browser.click_back_to_list()
-                except Exception:
-                    print("通过按钮返回失败，尝试直接跳转...")
-                    browser.enter_course_grading(config["course"]["url"])
-
-                # 强制刷新列表以移除已批改的作业
-                browser.refresh_filters()
+                # 尝试切换到下一个学生
+                print("尝试进入下一个学生...")
+                if not browser.click_next_student():
+                    print("无法进入下一个学生，可能已到列表末尾或全部批改完成。")
+                    break
 
             except Exception as e:
                 print(f"处理当前作业时发生错误: {e}")
-                # 尝试强制重新加载课程页，以防页面状态异常
-                print("尝试重置状态以继续...")
+                # 发生错误时，尝试返回列表重新开始
+                print("尝试返回列表重置状态...")
                 browser.driver.get(config["course"]["url"])
                 time.sleep(3)
                 browser.enter_course_grading(config["course"]["url"])
                 browser.filter_ungraded()
+                icons = browser.get_ungraded_assignments()
+                if not icons:
+                    break
+                browser.open_assignment_detail(icons[0])
                 continue
 
         print("\n🎉 所有作业已处理完成！")

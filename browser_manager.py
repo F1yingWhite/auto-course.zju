@@ -88,38 +88,11 @@ class BrowserManager:
         except Exception as e:
             print(f"筛选作业时发生错误（可能已设置过）: {e}")
 
-    def refresh_filters(self):
-        """
-        通过切换【状态】筛选条件来强制刷新列表。
-        """
-        try:
-            print("正在通过切换筛选条件强制刷新列表...")
-            status_btn = self.wait.until(EC.element_to_be_clickable((By.ID, "status-select_ms")))
-            status_btn.click()
-            time.sleep(1)
-
-            # 取消勾选【已交】
-            status_option = self.wait.until(EC.element_to_be_clickable((By.XPATH, "//label[contains(., '已交')]")))
-            status_option.click()
-            time.sleep(1.5)
-
-            # 重新勾选【已交】
-            status_option.click()
-            time.sleep(1.5)
-
-            # 关闭下拉菜单
-            status_btn.click()
-            time.sleep(2)
-            print("列表刷新完成。")
-        except Exception as e:
-            print(f"强制刷新列表失败: {e}")
-
     def get_ungraded_assignments(self):
         """
         获取当前页面所有待批改图标。
         """
         try:
-            # 缩短这里的等待，如果没有就是没有了
             local_wait = WebDriverWait(self.driver, 5)
             return local_wait.until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, "i.font.font-correcting")))
         except:
@@ -129,15 +102,18 @@ class BrowserManager:
         """
         点击图标进入作业详情页。
         """
-        current_url = self.driver.current_url
-        self.driver.execute_script("arguments[0].scrollIntoView(true);", icon_element)
-        time.sleep(0.5)
-        self.driver.execute_script("arguments[0].click();", icon_element)
+        try:
+            current_url = self.driver.current_url
+            self.driver.execute_script("arguments[0].scrollIntoView(true);", icon_element)
+            time.sleep(0.5)
+            self.driver.execute_script("arguments[0].click();", icon_element)
 
-        # 等待 URL 变化
-        WebDriverWait(self.driver, 10).until(EC.url_changes(current_url))
-        print("已进入作业详情页，等待内容加载...")
-        time.sleep(3)
+            # 等待 URL 变化
+            WebDriverWait(self.driver, 10).until(EC.url_changes(current_url))
+            print("已进入作业详情页，等待内容加载...")
+            time.sleep(3)
+        except Exception:
+            pass
 
     def download_current_assignment(self):
         """
@@ -229,6 +205,7 @@ class BrowserManager:
             # 使用 JavaScript 清除并填入
             self.driver.execute_script("arguments[0].value = '';", score_input)
             score_input.send_keys(str(score))
+            time.sleep(0.5)
             # 失去焦点以触发上传
             self.driver.execute_script("arguments[0].blur();", score_input)
             print("分数已填入并失去焦点。")
@@ -239,6 +216,7 @@ class BrowserManager:
             )
             self.driver.execute_script("arguments[0].value = '';", comment_input)
             comment_input.send_keys(comment)
+            time.sleep(0.5)
             # 失去焦点以触发上传
             self.driver.execute_script("arguments[0].blur();", comment_input)
             print("评语已填入并失去焦点。")
@@ -272,6 +250,34 @@ class BrowserManager:
             print(f"点击返回按钮失败: {e}")
             # 如果点击失败，作为兜底，尝试通过 JS 点击或者由外部逻辑处理
             raise
+
+    def click_next_student(self):
+        """
+        点击详情页的“下一个”按钮切换到下一个学生。
+        """
+        try:
+            print("正在查找下一个学生按钮...")
+            self.driver.switch_to.default_content()
+            # 使用用户提供的类名和文字进行定位
+            next_btn = self.wait.until(
+                EC.element_to_be_clickable((By.CSS_SELECTOR, "button.switch-member-btn.ivu-btn-primary"))
+            )
+            # 确认按钮文字包含“下一个”
+            if "下一个" in next_btn.text:
+                self.driver.execute_script("arguments[0].scrollIntoView(true);", next_btn)
+                time.sleep(0.5)
+                # 使用 JavaScript 点击以确保稳定性
+                self.driver.execute_script("arguments[0].click();", next_btn)
+                print("已点击下一个按钮，正在切换学生...")
+                # 切换后等待内容加载
+                time.sleep(4)
+                return True
+            else:
+                print("找到按钮但文字不匹配，可能已到最后一个。")
+                return False
+        except Exception as e:
+            print(f"点击下一个按钮失败（可能已是最后一个）: {e}")
+            return False
 
     def quit(self):
         self.driver.quit()

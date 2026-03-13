@@ -1,5 +1,6 @@
 import os
 import shutil
+import subprocess
 import tempfile
 import time
 import traceback
@@ -36,6 +37,55 @@ class LLMManager:
             else:
                 os.environ.pop("HTTPS_PROXY", None)
 
+    def _convert_to_pdf_libreoffice(self, file_path: Path) -> Path | None:
+        """
+        使用 LibreOffice (soffice --headless) 将文件转换为 PDF。
+        """
+        libreoffice_paths = [
+            "/Applications/LibreOffice.app/Contents/MacOS/soffice",
+            "/usr/local/bin/soffice",
+            "soffice",
+        ]
+
+        soffice_bin = None
+        for p in libreoffice_paths:
+            if shutil.which(p) or os.path.exists(p):
+                soffice_bin = p
+                break
+
+        if not soffice_bin:
+            print("未找到 LibreOffice (soffice)，请确保已安装并加入 PATH。")
+            return None
+
+        output_dir = file_path.parent
+        pdf_path = file_path.with_suffix(".pdf")
+
+        try:
+            print(f"调用 LibreOffice 转换 {file_path.name}...")
+            # --headless: 无界面运行
+            # --convert-to pdf: 目标格式
+            # --outdir: 输出目录
+            cmd = [
+                soffice_bin,
+                "--headless",
+                "--convert-to",
+                "pdf",
+                "--outdir",
+                str(output_dir),
+                str(file_path),
+            ]
+
+            result = subprocess.run(cmd, capture_output=True, text=True, timeout=60)
+
+            if result.returncode == 0 and pdf_path.exists():
+                return pdf_path
+            else:
+                print(f"LibreOffice 转换失败 (退出码 {result.returncode}): {result.stderr}")
+                return None
+        except Exception as e:
+            print(f"执行 LibreOffice 转换时发生异常: {e}")
+            return None
+
     def grade_assignment(self, file_paths: list[str]):
         """
         调用 Gemini 对作业进行打分。
@@ -50,30 +100,22 @@ class LLMManager:
             file_path = Path(path)
             if file_path.suffix.lower() in [".docx", ".doc"]:
                 print(f"检测到 {file_path.name}，正在将其转换为 PDF 以保留格式和图片...")
-                try:
-                    from docx2pdf import convert
-                    # 生成 PDF 路径：同名但后缀为 .pdf
-                    pdf_path = file_path.with_suffix(".pdf")
-                    # docx2pdf.convert(input, output)
-                    # 注意：在 macOS 上，这会打开 Word 窗口
-                    convert(str(file_path), str(pdf_path))
-                    
-                    if pdf_path.exists():
-                        print(f"转换成功: {pdf_path.name}")
-                        # 转换成功后删除原始 docx
-                        if file_path.exists():
-                            os.remove(file_path)
-                            print(f"已删除原始文件: {file_path.name}")
-                        processed_file_paths.append(str(pdf_path))
-                    else:
-                        print(f"警告: 转换后未找到 PDF 文件 {pdf_path.name}，将继续尝试处理原文件。")
-                        processed_file_paths.append(path)
-                except Exception as e:
-                    print(f"转换 {file_path.name} 失败 (请确保已安装 Word 并授权): {e}")
+
+                pdf_path = self._convert_to_pdf_libreoffice(file_path)
+
+                if pdf_path and pdf_path.exists():
+                    print(f"转换成功: {pdf_path.name}")
+                    # 转换成功后删除原始 docx
+                    if file_path.exists():
+                        os.remove(file_path)
+                        print(f"已删除原始文件: {file_path.name}")
+                    processed_file_paths.append(str(pdf_path))
+                else:
+                    print(f"警告: 转换失败，将继续尝试处理原文件 {file_path.name}。")
                     processed_file_paths.append(path)
             else:
                 processed_file_paths.append(path)
-        
+
         # 使用处理后的路径列表
         file_paths = processed_file_paths
 
@@ -138,6 +180,22 @@ class LLMManager:
                         print(f"上传或处理文件 {file_path.name} 失败: {e}")
                         # 如果上传失败，尝试以文本描述形式添加（虽然对于视频/PDF可能没用）
                         contents.append(f"\n[文件 {file_path.name} 上传或处理失败，无法分析该附件: {e}]")
+                else:
+                    # 处理文本文件，尝试多种编码
+                    content = None
+                    for encoding in ["utf-8", "gbk", "gb18030", "latin-1"]:
+                        try:
+                            with open(path, "r", encoding=encoding) as f:
+                                content = f.read()
+                                break
+                        except Exception:
+                            continue
+
+                    if content is not None:
+                        contents.append(f"\n文件 {file_path.name} 的内容:\n{content}")
+                    else:
+                        print(f"无法以任何已知编码读取文件 {file_path.name}")
+                        contents.append(f"\n[无法读取文件 {file_path.name}]")
 
             print(f"正在调用 {self.model_name} 进行打分...")
             response = self.client.models.generate_content(model=self.model_name, contents=contents)
