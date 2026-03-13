@@ -1,205 +1,102 @@
+import os
 import time
 import tomllib
 
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.support.ui import WebDriverWait
+from browser_manager import BrowserManager
+from file_utils import clear_downloads, get_latest_files
+from llm_manager import LLMManager
 
-import os
-import time
+
 def load_config(file_path="config.toml"):
     with open(file_path, "rb") as f:
         return tomllib.load(f)
 
 
 def main():
-    # 1. 加载配置
+    # 1. 初始化配置
     config = load_config()
-    username = config["account"]["username"]
-    password = config["account"]["password"]
-    course_url = config["course"]["url"]
+    download_dir = os.path.expanduser("~/Downloads")
 
-    options = webdriver.ChromeOptions()
-    driver = webdriver.Chrome(options=options)
-    wait = WebDriverWait(driver, 15)
+    # 2. 准备工作：清空下载目录
+    clear_downloads(download_dir)
+
+    # 3. 初始化管理器
+    browser = BrowserManager(download_dir)
+    llm = LLMManager(config["llm"]["api"])
 
     try:
-        # 1. 打开学在浙大首页
-        print("正在打开学在浙大首页...")
-        driver.get("https://course.zju.edu.cn/learninginzju?locale=zh-CN")
+        # 4. 登录并进入课程
+        browser.login(config["account"]["username"], config["account"]["password"])
+        browser.enter_course_grading(config["course"]["url"])
+        browser.filter_ungraded()
 
-        # 2. 点击统一身份认证登录按钮
-        # 根据页面特征寻找包含“统一身份认证”字样的链接或按钮
-        print("寻找并点击登录按钮...")
-        login_btn = wait.until(
-            EC.element_to_be_clickable(
-                (By.XPATH, "//a[contains(text(), '统一身份认证')] | //button[contains(text(), '统一身份认证')]")
-            )
-        )
-        login_btn.click()
-
-        # 3. 在浙大统一身份认证页面输入账号密码并登录
-        print("正在输入统一身份认证账号密码...")
-        # 等待账号输入框出现
-        user_input = wait.until(EC.presence_of_element_located((By.ID, "username")))
-        pass_input = driver.find_element(By.ID, "password")
-        submit_btn = driver.find_element(By.ID, "dl")  # "dl" 是浙大登录按钮的常见 ID
-
-        user_input.send_keys(username)
-        pass_input.send_keys(password)
-        submit_btn.click()
-
-        print("等待登录验证...")
-        wait.until(EC.url_contains("course.zju.edu.cn"))
-
-        print(f"登录成功，正在跳转到课程主页: {course_url}")
-        driver.get(course_url)
-        print("成功进入目标课程！")
-
-        # 等待页面基础元素加载完成
-        time.sleep(2)
-
-        grading_tab = wait.until(EC.element_to_be_clickable((By.XPATH, "//span[@ng-click=\"ui.view = 'scores'\"]")))
-
-        if "active" not in grading_tab.get_attribute("class"):
-            grading_tab.click()
-            print("已点击【作业批改】")
-            time.sleep(2)
-        else:
-            print("当前已经在【作业批改】标签页")
-
-        time.sleep(2)
-
-        print("正在检查【状态】下拉框...")
-        try:
-            status_btn = wait.until(EC.element_to_be_clickable((By.ID, "status-select_ms")))
-
-            current_status = status_btn.text.strip()
-
-            if "已交" not in current_status:
-                print("当前状态不是【已交】，正在展开下拉框...")
-                status_btn.click()
-                time.sleep(1)
-
-                status_option = wait.until(
-                    EC.element_to_be_clickable(
-                        (
-                            By.XPATH,
-                            "//div[contains(@class, 'ui-multiselect-menu') and contains(@style, 'display: block')]//label[contains(., '已交')] | //label[contains(., '已交')]",
-                        )
-                    )
-                )
-                status_option.click()
-                print("已成功选择【已交】状态！")
-                time.sleep(1)  # 等待表格数据按新状态刷新
-            else:
-                print("状态已经是【已交】，无需更改。")
-
-        except Exception as e:
-            print(f"设置【状态】下拉框时跳过，报错信息作调试参考: {e}")
-
-        # 3. 筛选批改状态：未批改
-        print("正在设置批改状态为【未批改】...")
-        try:
-            grading_btn = wait.until(EC.element_to_be_clickable((By.ID, "status-mark_ms")))
-            current_grading_status = grading_btn.text.strip()
-
-            if "未批改" not in current_grading_status:
-                print(f"当前批改状态为【{current_grading_status}】，正在展开下拉框...")
-                grading_btn.click()
-                time.sleep(1)  # 等待下拉动画展开
-
-                ungraded_option = wait.until(
-                    EC.element_to_be_clickable(
-                        (
-                            By.XPATH,
-                            "//div[contains(@class, 'ui-multiselect-menu') and contains(@style, 'display: block')]//input[@value='unmarked']/parent::label",
-                        )
-                    )
-                )
-                ungraded_option.click()
-                print("已成功选中【未批改】！")
-
-                grading_btn.click()
-                time.sleep(2)
-            else:
-                print("批改状态已经是【未批改】，无需更改。")
-
-        except Exception as e:
-            print(f"设置【批改】下拉框时发生异常，请参考报错信息: {e}")
-        # 4. 点击第一个待批改的作业进行批改（当前页面跳转）
-        print("正在查找批改按钮...")
-        correct_icons = wait.until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, "i.font.font-correcting")))
-
-        if len(correct_icons) > 0:
+        # 5. 主循环：批改作业
+        print("\n开始检查待批改作业...")
+        while True:
             try:
-                print(f"太好了，当前页面找到了 {len(correct_icons)} 份待批改的作业！")
-                print("正在点击第一个作业的批改图标...")
-                first_icon = correct_icons[0]
-                current_url = driver.current_url
-                driver.execute_script("arguments[0].click();", first_icon)
-                wait.until(EC.url_changes(current_url))
-                print("正在加载批改详情页...")
-
-                time.sleep(3)
-                print("已成功进入批改详情页！")
+                icons = browser.get_ungraded_assignments()
             except Exception as e:
-                print(f"点击批改图标时发生异常，请参考报错信息: {e}")
-        else:
-            print("列表中没有找到批改图标，太棒了，作业已经全部批改完了！")
+                print(f"获取待批改列表失败: {e}")
+                break
 
-        print("列表筛选完成！")
-        print("成功进入目标课程！")
-        # 5. 抓取并循环遍历学生提交的所有作业文件
-        print("正在定位左侧的作业文件列表...")
-        try:
-            file_items = wait.until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, "div.tab-body div.upload")))
+            if not icons:
+                print("所有作业已处理完毕。")
+                break
 
-            print(f"共找到 {len(file_items)} 个提交的文件，准备依次处理...")
+            print(f"发现 {len(icons)} 份待批改作业，处理第一份...")
+            first_icon = icons[0]
 
-            for index, item in enumerate(file_items):
+            try:
+                # 进入批改页
                 try:
-                    name_element = item.find_element(By.CSS_SELECTOR, "span.upload-name")
-                    file_name = name_element.text.strip()
+                    browser.open_assignment_detail(first_icon)
                 except Exception:
-                    file_name = f"未知文件_{index + 1}"
+                    pass
 
-                print("\n=================================")
-                print(f"正在处理第 {index + 1} 个文件: {file_name}")
+                browser.download_current_assignment()
 
-                driver.execute_script("arguments[0].click();", item)
+                # 获取下载后的文件列表
+                files = get_latest_files(download_dir)
 
-                time.sleep(5)
+                # 调用 Gemini 进行评分
+                if files:
+                    result = llm.grade_assignment(files)
+                    print("\n--- Gemini 评分结果 ---")
+                    print(result)
+                    print("----------------------\n")
+                else:
+                    print("⚠️ 该作业未检测到已下载的文件，跳过 LLM 评分。")
 
-                print(f"预览已加载，准备寻找 [{file_name}] 的下载按钮...")
-                try:
-                    download_btn = wait.until(
-                        EC.element_to_be_clickable(
-                            (By.CSS_SELECTOR, "i.font-pdf-editor-download-btn, i.icon-file-preview-download")
-                        )
-                    )
+                # 评分完成后清空下载目录
+                clear_downloads(download_dir)
 
-                    driver.execute_script("arguments[0].click();", download_btn)
-                    print(f"成功触发 [{file_name}] 的下载！")
+                # 返回作业列表页
+                print("返回作业列表...")
+                browser.driver.back()
+                time.sleep(3)
 
-                    # 触发下载后多等一会儿，确保浏览器开始建立下载任务，防止立马点下一个文件导致下载中断
-                    time.sleep(3)
+                # 重新应用筛选（返回后可能状态丢失）
+                browser.filter_ungraded()
 
-                except Exception as e:
-                    print(f"⚠️ 未找到 [{file_name}] 的下载按钮，可能该文件不支持下载，或者预览还在加载: {e}")
+            except Exception as e:
+                print(f"处理当前作业时发生错误: {e}")
+                # 尝试强制返回列表页，以便继续下一个
+                print("尝试返回作业列表以继续...")
+                browser.driver.get(config["course"]["url"])
+                time.sleep(3)
+                browser.enter_course_grading(config["course"]["url"])
+                browser.filter_ungraded()
+                continue
 
-        except Exception as e:
-            print(f"查找或遍历作业文件列表失败，请检查定位逻辑: {e}")
-
-        except Exception as e:
-            print(f"查找或遍历作业文件列表失败，请检查定位逻辑: {e}")
-        input("按下回车键关闭浏览器并结束脚本...")
+        input("\n所有作业处理完成，按回车键退出浏览器...")
 
     except Exception as e:
-        print(f"发生错误: {e}")
+        print(f"\n❌ 主程序发生严重错误: {e}")
+        import traceback
+
+        traceback.print_exc()
     finally:
-        driver.quit()
+        browser.quit()
 
 
 if __name__ == "__main__":
