@@ -88,6 +88,32 @@ class BrowserManager:
         except Exception as e:
             print(f"筛选作业时发生错误（可能已设置过）: {e}")
 
+    def refresh_filters(self):
+        """
+        通过切换【状态】筛选条件来强制刷新列表。
+        """
+        try:
+            print("正在通过切换筛选条件强制刷新列表...")
+            status_btn = self.wait.until(EC.element_to_be_clickable((By.ID, "status-select_ms")))
+            status_btn.click()
+            time.sleep(1)
+
+            # 取消勾选【已交】
+            status_option = self.wait.until(EC.element_to_be_clickable((By.XPATH, "//label[contains(., '已交')]")))
+            status_option.click()
+            time.sleep(1.5)
+
+            # 重新勾选【已交】
+            status_option.click()
+            time.sleep(1.5)
+
+            # 关闭下拉菜单
+            status_btn.click()
+            time.sleep(2)
+            print("列表刷新完成。")
+        except Exception as e:
+            print(f"强制刷新列表失败: {e}")
+
     def get_ungraded_assignments(self):
         """
         获取当前页面所有待批改图标。
@@ -184,6 +210,67 @@ class BrowserManager:
                     continue
         except Exception as e:
             print(f"获取详情页文件列表失败，可能是页面加载超时: {e}")
+            raise
+
+    def fill_grade(self, score, comment):
+        """
+        在详情页填入分数和评语，不执行提交。
+        通过 blur() 触发页面的实时更新。
+        """
+        try:
+            print(f"准备填入评分: {score}")
+            # 确保在主文档中，退出任何可能的 iframe
+            self.driver.switch_to.default_content()
+
+            # 定位分数输入框
+            score_input = self.wait.until(
+                EC.presence_of_element_located((By.XPATH, "//input[@placeholder='请输入成绩']"))
+            )
+            # 使用 JavaScript 清除并填入
+            self.driver.execute_script("arguments[0].value = '';", score_input)
+            score_input.send_keys(str(score))
+            # 失去焦点以触发上传
+            self.driver.execute_script("arguments[0].blur();", score_input)
+            print("分数已填入并失去焦点。")
+
+            # 定位评语输入框
+            comment_input = self.wait.until(
+                EC.presence_of_element_located((By.XPATH, "//textarea[@placeholder='请填写对当前学生作业的评语']"))
+            )
+            self.driver.execute_script("arguments[0].value = '';", comment_input)
+            comment_input.send_keys(comment)
+            # 失去焦点以触发上传
+            self.driver.execute_script("arguments[0].blur();", comment_input)
+            print("评语已填入并失去焦点。")
+
+            # 等待片刻确保实时更新触发完成
+            time.sleep(3)
+
+        except Exception as e:
+            print(f"填入评分时发生错误: {e}")
+            raise
+
+    def click_back_to_list(self):
+        """
+        点击详情页的“返回”按钮回到作业列表。
+        """
+        try:
+            print("正在查找返回按钮...")
+            self.driver.switch_to.default_content()
+            # 根据用户提供的 HTML 结构，使用包含 'back-text' 类的 span 或包含 '返回' 文字的按钮
+            back_btn = self.wait.until(
+                EC.element_to_be_clickable(
+                    (By.XPATH, "//button[contains(@class, 'ivu-btn')]//span[contains(text(), '返回')]")
+                )
+            )
+            self.driver.execute_script("arguments[0].scrollIntoView(true);", back_btn)
+            time.sleep(0.5)
+            back_btn.click()
+            print("已点击返回按钮，正在返回列表...")
+            time.sleep(2)
+        except Exception as e:
+            print(f"点击返回按钮失败: {e}")
+            # 如果点击失败，作为兜底，尝试通过 JS 点击或者由外部逻辑处理
             raise
 
     def quit(self):

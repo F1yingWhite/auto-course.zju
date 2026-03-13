@@ -1,15 +1,58 @@
+import json
 import os
+import re
 import time
 import tomllib
 
 from browser_manager import BrowserManager
-from file_utils import clear_downloads, get_latest_files
+from file_utils import clear_downloads, get_latest_files, wait_for_downloads
 from llm_manager import LLMManager
 
 
 def load_config(file_path="config.toml"):
     with open(file_path, "rb") as f:
         return tomllib.load(f)
+
+
+def parse_llm_result(text):
+    """
+    解析 LLM 返回的 JSON 字符串，提取分数和评语。
+    """
+    try:
+        # 尝试匹配 Markdown 块中的 JSON
+        json_match = re.search(r"```(?:json)?\s*(\{.*?\})\s*```", text, re.DOTALL)
+        if json_match:
+            json_str = json_match.group(1)
+        else:
+            # 如果没找到 Markdown 块，尝试匹配最外层的花括号
+            json_match = re.search(r"(\{.*\})", text, re.DOTALL)
+            json_str = json_match.group(1) if json_match else text
+
+        data = json.loads(json_str)
+        return data.get("分数"), data.get("评语")
+    except Exception as e:
+        print(f"解析 LLM 结果失败: {e}")
+        return None, None
+
+
+def clean_markdown(text):
+    """
+    去除评语中的 Markdown 语法，使其适合填入文本框。
+    """
+    if not text:
+        return ""
+    # 去除加粗/斜体
+    text = re.sub(r"[*_]{1,3}", "", text)
+    # 去除标题符号
+    text = re.sub(r"^#+\s*", "", text, flags=re.MULTILINE)
+    # 去除列表符号
+    text = re.sub(r"^[-*+]\s+", "", text, flags=re.MULTILINE)
+    # 去除数字列表前面的数字
+    text = re.sub(r"^\d+\.\s+", "", text, flags=re.MULTILINE)
+    # 去除代码块标记
+    text = re.sub(r"```.*?```", "", text, flags=re.DOTALL)
+    text = re.sub(r"`", "", text)
+    return text.strip()
 
 
 def main():
@@ -31,8 +74,9 @@ def main():
         browser.filter_ungraded()
 
         # 5. 主循环：批改作业
-        print("\n开始检查待批改作业...")
         while True:
+            print("\n正在检查待批改作业...")
+
             try:
                 icons = browser.get_ungraded_assignments()
             except Exception as e:
@@ -40,30 +84,46 @@ def main():
                 break
 
             if not icons:
-                print("所有作业已处理完毕。")
+                print("所有待批改作业已处理完毕。")
                 break
 
-            print(f"发现 {len(icons)} 份待批改作业，处理第一份...")
-            first_icon = icons[0]
+            print(f"当前剩余 {len(icons)} 份待批改作业，处理下一份...")
+            # 始终处理列表中的第一个
+            current_icon = icons[0]
 
             try:
-                # 进入批改页
                 try:
-                    browser.open_assignment_detail(first_icon)
+                    browser.open_assignment_detail(current_icon)
                 except Exception:
                     pass
 
+                # 下载文件
                 browser.download_current_assignment()
+
+                # 等待下载完成
+                wait_for_downloads(download_dir)
 
                 # 获取下载后的文件列表
                 files = get_latest_files(download_dir)
 
                 # 调用 Gemini 进行评分
                 if files:
-                    result = llm.grade_assignment(files)
-                    print("\n--- Gemini 评分结果 ---")
-                    print(result)
+                    result_text = llm.grade_assignment(files)
+                    print("\n--- Gemini 原始回复 ---")
+                    print(result_text)
                     print("----------------------\n")
+
+                    score, comment = parse_llm_result(result_text)
+                    if score is not None:
+                        cleaned_comment = clean_markdown(comment)
+                        print(f"解析成功 -> 分数: {score}")
+                        print(f"清洗后的评语: {cleaned_comment[:50]}...")
+
+                        # 填入评分和评语
+                        browser.fill_grade(score, cleaned_comment)
+                        print("已自动填入分数和评语。")
+                    else:
+                        print("解析失败，跳过填入步骤。")
                 else:
                     print("⚠️ 该作业未检测到已下载的文件，跳过 LLM 评分。")
 
@@ -72,23 +132,27 @@ def main():
 
                 # 返回作业列表页
                 print("返回作业列表...")
-                browser.driver.back()
-                time.sleep(3)
+                try:
+                    browser.click_back_to_list()
+                except Exception:
+                    print("通过按钮返回失败，尝试直接跳转...")
+                    browser.enter_course_grading(config["course"]["url"])
 
-                # 重新应用筛选（返回后可能状态丢失）
-                browser.filter_ungraded()
+                # 强制刷新列表以移除已批改的作业
+                browser.refresh_filters()
 
             except Exception as e:
                 print(f"处理当前作业时发生错误: {e}")
-                # 尝试强制返回列表页，以便继续下一个
-                print("尝试返回作业列表以继续...")
+                # 尝试强制重新加载课程页，以防页面状态异常
+                print("尝试重置状态以继续...")
                 browser.driver.get(config["course"]["url"])
                 time.sleep(3)
                 browser.enter_course_grading(config["course"]["url"])
                 browser.filter_ungraded()
                 continue
 
-        input("\n所有作业处理完成，按回车键退出浏览器...")
+        print("\n🎉 所有作业已处理完成！")
+        input("按回车键退出浏览器...")
 
     except Exception as e:
         print(f"\n❌ 主程序发生严重错误: {e}")
