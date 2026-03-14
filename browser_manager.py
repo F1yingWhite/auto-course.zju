@@ -191,7 +191,7 @@ class BrowserManager:
     def fill_grade(self, score, comment):
         """
         在详情页填入分数和评语，不执行提交。
-        通过 blur() 触发页面的实时更新。
+        通过触发 input/change 事件确保框架（如 Vue）能监听到值的变化。
         """
         try:
             print(f"准备填入评分: {score}")
@@ -199,33 +199,48 @@ class BrowserManager:
             self.driver.switch_to.default_content()
 
             # 定位分数输入框
-            score_input = self.wait.until(
-                EC.presence_of_element_located((By.XPATH, "//input[@placeholder='请输入成绩']"))
+            score_input = self.wait.until(EC.element_to_be_clickable((By.XPATH, "//input[@placeholder='请输入成绩']")))
+            # 使用 JavaScript 设置值并触发事件，确保 Vue 等框架能识别到变化
+            self.driver.execute_script(
+                """
+                var element = arguments[0];
+                element.value = arguments[1];
+                element.dispatchEvent(new Event('input', { bubbles: true }));
+                element.dispatchEvent(new Event('change', { bubbles: true }));
+                element.blur();
+            """,
+                score_input,
+                str(score),
             )
-            # 使用 JavaScript 清除并填入
-            self.driver.execute_script("arguments[0].value = '';", score_input)
-            score_input.send_keys(str(score))
-            time.sleep(0.5)
-            # 失去焦点以触发上传
-            self.driver.execute_script("arguments[0].blur();", score_input)
-            print("分数已填入并失去焦点。")
+            print("分数已填入。")
 
             # 定位评语输入框
             comment_input = self.wait.until(
-                EC.presence_of_element_located((By.XPATH, "//textarea[@placeholder='请填写对当前学生作业的评语']"))
+                EC.element_to_be_clickable((By.XPATH, "//textarea[@placeholder='请填写对当前学生作业的评语']"))
             )
-            self.driver.execute_script("arguments[0].value = '';", comment_input)
-            comment_input.send_keys(comment)
+            # 先滚动到可见区域
+            self.driver.execute_script("arguments[0].scrollIntoView(true);", comment_input)
             time.sleep(0.5)
-            # 失去焦点以触发上传
-            self.driver.execute_script("arguments[0].blur();", comment_input)
-            print("评语已填入并失去焦点。")
 
-            # 等待片刻确保实时更新触发完成
-            time.sleep(3)
+            # 使用 JS 直接设置值并触发事件
+            self.driver.execute_script(
+                """
+                var element = arguments[0];
+                element.value = arguments[1];
+                element.dispatchEvent(new Event('input', { bubbles: true }));
+                element.dispatchEvent(new Event('change', { bubbles: true }));
+                element.blur();
+            """,
+                comment_input,
+                comment,
+            )
+            print("评语已填入。")
+
+            # 等待片刻确保异步状态保存完成
+            time.sleep(2)
 
         except Exception as e:
-            print(f"填入评分时发生错误: {e}")
+            print(f"填入评分或评语时发生错误: {e}")
             raise
 
     def click_back_to_list(self):

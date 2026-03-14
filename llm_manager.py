@@ -124,7 +124,7 @@ class LLMManager:
         if os.path.exists(assignment_ref):
             file_paths.append(assignment_ref)
 
-        prompt = '请你根据文件`实验1 AI认识初步和DeepSeek大模型部署应用.pdf`对学生的作业进行打分，输出格式为json:\n{\n  "分数": int,  # 0-100分\n  "评语": "str"  # 针对作业的具体反馈\n}\n\n请根据以下文件内容进行评分：'
+        prompt = '请你根据文件`实验1 AI认识初步和DeepSeek大模型部署应用.pdf`对学生的作业进行打分，不需要关注视频长度，因为上传给你看可能会出现问题，输出格式为json:\n{\n  "分数": int,  # 0-100分\n  "评语": "str"  # 针对作业的具体反馈\n}\n\n请根据以下文件内容进行评分：'
 
         # 准备内容列表
         contents = [prompt]
